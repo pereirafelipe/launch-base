@@ -3,6 +3,12 @@
 ## Sumário:
 
 - [Variáveis](#ancora1)
+- [Operadores](#ancora2)
+- [Condicionais](#ancora3)
+- [Laços de Repetição](#ancora4)
+- [Objetos](#ancora5)
+- [Arrays](#ancora6)
+- [Funções](#ancora7)
 
 ## Conceitos básicos da programação:
 
@@ -47,6 +53,7 @@ Var:
    name = "João" //certo
    ```
    
+<a id="ancora2"></a>
 ### Operadores:
 
 #### Aritméticos:
@@ -80,7 +87,7 @@ Var:
 | ===      | Igual, até o tipo     |
 | !==      | Diferente, até o tipo |
 
-
+<a id="ancora3"></a>
 ### Condicionais:
 
 - If e else:
@@ -104,7 +111,7 @@ switch(exp){
     break;
 }
 ```
-
+<a id="ancora4"></a>
 ### Laços de repetição:
 
 - for
@@ -131,7 +138,7 @@ do{
   x++
 }while(x < 10);
 ```
-
+<a id="ancora5"></a>
 ### Objetos:
 
 ```
@@ -142,7 +149,7 @@ const user = {
 
 console.log(user.name); // Fernanda
 ```
-
+<a id="ancora6"></a>
 ### Arrays:
 
 ```
@@ -150,7 +157,7 @@ const numbers = [1, 2, 3, 4];
 
 console.log(number[0]); // 1
 ```
-
+<a id="ancora7"></a>
 ### Funções:
 
 ```
