@@ -12,7 +12,9 @@ LaunchBase
   <img width="360" src="https://user-images.githubusercontent.com/48728541/84803421-5b6eb480-afd8-11ea-91ea-883c5ef9f2d1.png" />
 </p>
 
-**Repositório criado para os desafios do LaunchBase**
+<p align="center">
+ <strong>Repositório criado para os desafios do LaunchBase</strong>
+</p>
 
 ## Sumário:
 
