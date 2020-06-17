@@ -150,3 +150,9 @@ h2 {
 .ourRecipes {
   margin-bottom: 50px;
 }
+
+/* Recipes */
+
+.page__recipes {
+  margin-top: 20px;
+}
