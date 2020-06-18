@@ -15,6 +15,10 @@ server.get("/", (req, res) => {
   return res.render("index");
 });
 
+// server.get("/skills", (req, res) => {
+//   return res.render("skills");
+// });
+
 server.listen(5000, () => {
   console.log("🚀 Server is running...");
 });
