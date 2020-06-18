@@ -1,7 +1,12 @@
-{% extends layout %}
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <title>Rocketseat | Cursos</title>
+{% endblock head %}
 
 {% block content %}
-  <h1 class="page_title">Conteúdos</h1>
+  <h1 class="page_title">Cursos</h1>
 
   <section class="cards">
     <div class="card b_rocket" id="starter">
@@ -9,7 +14,7 @@
         01
       </div>
       <div class="card_image">
-        <img src="./assets/starter.svg" alt=""/>
+        <img src="/assets/starter.svg" alt=""/>
       </div>
       <div class="card_content">
         <p>
@@ -30,7 +35,7 @@
         02
       </div>
       <div class="card_image">
-        <img src="./assets/launchBase.svg" alt=""/>
+        <img src="/assets/launchBase.svg" alt=""/>
       </div>
       <div class="card_content">
         <p>
@@ -51,7 +56,7 @@
         03
       </div>
       <div class="card_image">
-        <img src="./assets/goStack.svg" alt=""/>
+        <img src="/assets/goStack.svg" alt=""/>
       </div>
       <div class="card_content">
         <p>
