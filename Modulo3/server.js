@@ -1,6 +1,8 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 
+const courses = require("./data");
+
 const server = express();
 
 server.use(express.static("public"));
