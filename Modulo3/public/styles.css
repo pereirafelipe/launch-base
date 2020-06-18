@@ -281,3 +281,27 @@ iframe {
   margin: 0;
   border-radius: 0;
 }
+
+.erro {
+  width: 40%;
+  text-align: center;
+  padding: 16px 32px;
+  background-color: #00000033;
+  border-radius: 8px;
+  margin-top: 64px;
+}
+
+.erro h1 {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.erro h2 {
+  text-transform: initial;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.erro a {
+  color: #eeeeee;
+}
