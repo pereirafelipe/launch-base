@@ -194,7 +194,12 @@ h2 {
 
 .ingredients__header {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.ingredients__header span {
+  cursor: pointer;
 }
 
 .ingredients__header h3 {
@@ -215,7 +220,12 @@ h2 {
 
 .preparation__header {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.preparation__header span {
+  cursor: pointer;
 }
 
 .preparation__header h3 {
@@ -236,7 +246,12 @@ h2 {
 
 .information__header {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.information__header span {
+  cursor: pointer;
 }
 
 .information__header h3 {
@@ -250,4 +265,8 @@ h2 {
   line-height: 28px;
   text-align: left;
   white-space: pre-line;
+}
+
+.hidden {
+  display: none;
 }

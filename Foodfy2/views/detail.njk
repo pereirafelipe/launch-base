@@ -18,11 +18,8 @@
       <div class="ingredients">
         <div class="ingredients__header">
           <h3>Ingredientes</h3>
-          <span class="material-icons">
-            arrow_drop_down
-          </span>
 
-          <span class="material-icons">
+          <span class="material-icons" id="ing_hidden">
             arrow_drop_up
           </span>
         </div>
@@ -36,36 +33,31 @@
       <div class="preparation">
         <div class="preparation__header">
           <h3>Modo de preparo</h3>
-          <span class="material-icons">
+          <span class="material-icons" id="pre_hidden">
             arrow_drop_down
-          </span>
-
-          <span class="material-icons">
-            arrow_drop_up
           </span>
         </div>
 
-        <ul>
+        <ul class="hidden">
           {% for item in recipe.preparation %}
             <li>{{item}}</li>
           {% endfor %}
         </ul>
       </div>
 
-      <div class="information">
-        <div class="preparation__header">
-          <h3>Informações adicionais</h3>
-          <span class="material-icons">
-            arrow_drop_down
-          </span>
+      {% if recipe.information !== "" %}
+        <div class="information">
+          <div class="preparation__header">
+            <h3>Informações adicionais</h3>
 
-          <span class="material-icons">
-            arrow_drop_up
-          </span>
+            <span class="material-icons" id="info_hidden">
+              arrow_drop_down
+            </span>
+          </div>
+
+          <p class="hidden">{{recipe.information}}</p>
         </div>
-
-        <p>{{recipe.information}}</p>
-      </div>
+      {% endif %}
 
     </section>
   </main>
