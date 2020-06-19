@@ -3,7 +3,7 @@
 <h2 align="center">Refatorando Foodfy</h2>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/48728541/84952001-a9aeb100-b0c7-11ea-9b7b-a16a7c293c25.png" />
+  <img src="https://user-images.githubusercontent.com/48728541/85178914-09d35d80-b256-11ea-9b42-5fef25178804.png" />
 </p>
 
 ## Tecnologias utilizadas:
