@@ -1,19 +1,7 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-  <main>
-    <section class="presentation">
-      <div class="presentation__texts">
-        <h1>As melhores receitas</h1>
-        <p>
-          Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
-        </p>
-      </div>
-      <img src="/assets/chef.png" alt="Chef Foodfy"/>
-    </section>
-
-    <h2>Mais acessadas</h2>
-
+  <main class="page__recipes">
     <section class="recipes">
       {% for recipe in recipes %}
         <div class="recipe">
