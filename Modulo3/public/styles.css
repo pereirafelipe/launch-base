@@ -220,69 +220,23 @@ main h2 {
   color: #eeeeee99;
 }
 
-.p_price {
+.p_price,
+.course_price {
   display: flex;
   justify-content: flex-end;
 }
 
-.p_price p {
+.p_price p,
+.course_price p {
   background-color: #282a36;
   padding: 8px 16px;
   border-radius: 4px;
-}
-
-.modal_overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  background-color: #000000bb;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal {
-  width: 90%;
-  height: 90%;
-  margin: 5vh auto;
-  background-color: #fff;
-  border-radius: 8px;
-  position: relative;
-}
-
-.icons {
-  color: #7159c1;
-  position: absolute;
-  display: flex;
-  align-items: flex-start;
-  top: 16px;
-  right: 16px;
-}
-
-.icons span {
-  cursor: pointer;
-}
-
-.material-icons {
-  margin: 0 8px;
 }
 
 iframe {
   width: 100%;
   height: 90%;
   margin-top: 4%;
-}
-
-.maximize {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  border-radius: 0;
 }
 
 .erro {
@@ -307,4 +261,105 @@ iframe {
 
 .erro a {
   color: #eeeeee;
+}
+
+.course {
+  width: 80%;
+  padding-top: 3%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #eeeeee;
+}
+
+.course_container {
+  width: 100%;
+  padding: 32px 64px;
+  border-radius: 8px;
+  background-color: #00000033;
+}
+
+#launch_img img {
+  width: 30%;
+}
+
+.course_image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.course_image img {
+  width: 20%;
+}
+
+.course_content {
+  width: 40%;
+  margin: auto;
+  font-size: 24px;
+  text-align: center;
+}
+
+.course_info {
+  width: 35%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 32px;
+  color: #eeeeee99;
+}
+
+.icons {
+  width: 35%;
+  height: 40px;
+  margin: auto;
+  margin-top: 32px;
+  padding-top: 8px;
+}
+
+.icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+}
+
+span.material-icons {
+  margin-right: 8px;
+  font-size: 16px;
+  position: absolute;
+  left: 80px;
+  animation: arrow_move 1.5s infinite;
+}
+
+#course_starter strong,
+#i_starter {
+  color: #7159c1;
+}
+
+#course_launchbase strong,
+#i_launchbase {
+  color: #f4942c;
+}
+
+#course_gostack strong,
+#i_gostack {
+  color: #50fa7b;
+}
+
+@keyframes arrow_move {
+  0% {
+    left: 80px;
+  }
+  50% {
+    left: 100px;
+  }
+  100% {
+    left: 80px;
+  }
 }

@@ -6,29 +6,34 @@
 {% endblock head %}
 
 {% block content %}
-  <h1 class="page_title">Cursos</h1>
+  <section class="course">
 
-  <section class="cards">
-
-    <div class="card b_rocket" id="{{course.id}}">
-      <div class="card_number">
-        {{course.number}}
-      </div>
-      <div class="card_image">
+    <div class="course_container" id="course_{{course.id}}">
+      <div class="course_image" id="{{ 'launch_img' if course.id == 'launchbase' }}">
         <img src="/assets/{{course.id}}.svg" alt=""/>
       </div>
-      <div class="card_content">
+      <div class="course_content">
         <p>
           <strong>{{course.strong}}</strong>
           {{course.description}}
         </p>
       </div>
-      <div class="card_info">
+      <div class="course_info">
         <p>{{course.modules}}</p>
-        <div class="p_price">
+        <div class="course_price">
           <p>{{course.price}}</p>
         </div>
       </div>
+
+      <div class="icons">
+        <a id="i_{{course.id}}" href="https://rocketseat.com.br/{{course.id}}" target="_blank" rel="noopener noreferrer">
+          <span class="material-icons">
+            arrow_forward_ios
+          </span>
+          <p>Visitar página oficial</p>
+        </a>
+      </div>
+
     </div>
 
   </section>
