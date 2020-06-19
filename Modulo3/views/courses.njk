@@ -9,68 +9,30 @@
   <h1 class="page_title">Cursos</h1>
 
   <section class="cards">
-    <div class="card b_rocket" id="starter">
-      <div class="card_number">
-        01
-      </div>
-      <div class="card_image">
-        <img src="/assets/starter.svg" alt=""/>
-      </div>
-      <div class="card_content">
-        <p>
-          <strong>Torne-se um programador desejado</strong>
-          no mercado com esses cursos gratuitos
-        </p>
-      </div>
-      <div class="card_info">
-        <p>4 módulos | 80 aulas</p>
-        <div class="p_price">
-          <p>Gratuito</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="card b_orange" id="launchbase">
-      <div class="card_number orange">
-        02
-      </div>
-      <div class="card_image">
-        <img src="/assets/launchBase.svg" alt=""/>
-      </div>
-      <div class="card_content">
-        <p>
-          <strong class="p_orange">Domine programação do zero</strong>
-          e tenha acesso às melhores oportunidades do mercado
-        </p>
-      </div>
-      <div class="card_info">
-        <p>7 módulos | 332 aulas</p>
-        <div class="p_price">
-          <p>Pago</p>
+    {% for course in courses %}
+      <div class="card b_rocket" id="{{course.id}}">
+        <div class="card_number">
+          {{course.number}}
+        </div>
+        <div class="card_image">
+          <img src="/assets/{{course.id}}.svg" alt=""/>
+        </div>
+        <div class="card_content">
+          <p>
+            <strong>{{course.strong}}</strong>
+            {{course.description}}
+          </p>
+        </div>
+        <div class="card_info">
+          <p>{{course.modules}}</p>
+          <div class="p_price">
+            <p>{{course.price}}</p>
+          </div>
         </div>
       </div>
-    </div>
+    {% endfor %}
 
-    <div class="card b_green" id="gostack">
-      <div class="card_number green">
-        03
-      </div>
-      <div class="card_image">
-        <img src="/assets/goStack.svg" alt=""/>
-      </div>
-      <div class="card_content">
-        <p>
-          <strong class="p_green">Treinamento imersivo</strong>
-          nas tecnologias mais modernas de desenvolvimento web e mobile
-        </p>
-      </div>
-      <div class="card_info">
-        <p>7 módulos | 332 aulas</p>
-        <div class="p_price">
-          <p>Pago</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <div class="modal_overlay">

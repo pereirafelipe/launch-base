@@ -139,27 +139,27 @@ main h2 {
   cursor: pointer;
 }
 
-.b_rocket,
-.b_orange,
-.b_green {
+#starter,
+#launchbase,
+#gostack {
   transition: all 0.5s ease-in-out;
 }
 
-.b_rocket:hover,
-.b_orange:hover,
-.b_green:hover {
+#starter:hover,
+#launchbase:hover,
+#gostack:hover {
   transform: scale(1.05);
 }
 
-.b_rocket:hover {
+#starter:hover {
   border: 2px solid #7159c1;
 }
 
-.b_orange:hover {
+#launchbase:hover {
   border: 2px solid #f4942c;
 }
 
-.b_green:hover {
+#gostack:hover {
   border: 2px solid #50fa7b;
 }
 
@@ -167,20 +167,23 @@ main h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #7159c1;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid #7159c1;
   margin: 0 0 72px;
 }
 
-.orange {
+#starter .card_number {
+  color: #7159c1;
+  border: 2px solid #7159c1;
+}
+
+#launchbase .card_number {
   color: #f4942c;
   border: 2px solid #f4942c;
 }
 
-.green {
+#gostack .card_number {
   color: #50fa7b;
   border: 2px solid #50fa7b;
 }
@@ -195,15 +198,15 @@ main h2 {
   color: #eeeeee;
 }
 
-.card_content p strong {
+#starter .card_content p strong {
   color: #7159c1;
 }
 
-.card_content p strong.p_orange {
+#launchbase .card_content p strong {
   color: #f4942c;
 }
 
-.card_content p strong.p_green {
+#gostack .card_content p strong {
   color: #50fa7b;
 }
 
