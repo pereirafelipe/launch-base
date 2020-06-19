@@ -8,11 +8,12 @@
   <main>
     <section class="detail">
       <div class="detail__image">
-        <img src="/assets/chef.png" alt="Chef Foodfy"/>
+        <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}"/>
       </div>
 
-      <h2>Titulo</h2>
-      <p>autor</p>
+      <h2>{{recipe.title}}</h2>
+      <p>por
+        {{recipe.author}}</p>
 
       <div class="ingredients">
         <div class="ingredients__header">
@@ -26,7 +27,9 @@
           </span>
         </div>
         <ul>
-          <li>Item</li>
+          {% for item in recipe.ingredients %}
+            <li>{{item}}</li>
+          {% endfor %}
         </ul>
       </div>
 
@@ -43,13 +46,25 @@
         </div>
 
         <ul>
-          <li>Item</li>
+          {% for item in recipe.preparation %}
+            <li>{{item}}</li>
+          {% endfor %}
         </ul>
       </div>
 
       <div class="information">
-        <h3>Inforações adicionais</h3>
-        <p>dd</p>
+        <div class="preparation__header">
+          <h3>Informações adicionais</h3>
+          <span class="material-icons">
+            arrow_drop_down
+          </span>
+
+          <span class="material-icons">
+            arrow_drop_up
+          </span>
+        </div>
+
+        <p>{{recipe.information}}</p>
       </div>
 
     </section>
