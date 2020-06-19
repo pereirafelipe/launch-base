@@ -18,7 +18,8 @@ LaunchBase
 
 ## Sumário:
 
-- [Módulo 1](./Modulo1) - Introdução à programação WEB 
-- [Módulo 2](./Modulo2) - Iniciando no Front-end 
+- [Módulo 1](./Modulo1) - Introdução à programação WEB
+- [Módulo 2](./Modulo2) - Iniciando no Front-end
 - [Foodfy 1.0 ](./Foodfy1) - Construindo o Foodfy
 - [Módulo 3](./Modulo3) - Iniciando no Back-end
+- [Foodfy 2.0](./Foodfy2) - Refatorando Foodfy
