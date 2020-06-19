@@ -34,11 +34,11 @@
         <div class="preparation__header">
           <h3>Modo de preparo</h3>
           <span class="material-icons" id="pre_hidden">
-            arrow_drop_down
+            arrow_drop_up
           </span>
         </div>
 
-        <ul class="hidden">
+        <ul>
           {% for item in recipe.preparation %}
             <li>{{item}}</li>
           {% endfor %}
@@ -51,11 +51,11 @@
             <h3>Informações adicionais</h3>
 
             <span class="material-icons" id="info_hidden">
-              arrow_drop_down
+              arrow_drop_up
             </span>
           </div>
 
-          <p class="hidden">{{recipe.information}}</p>
+          <p >{{recipe.information}}</p>
         </div>
       {% endif %}
 
