@@ -8,6 +8,6 @@
 
 ### Utilização do Nunjucks
 
-Nesses desafios foram utilizadas as mesmas páginas do desafio anterior, apenas refatorei a estrutura das páginas para obter dados dinâmicos com o nunjucks.
+Nesses desafios foram utilizadas as mesmas páginas do desafio anterior, apenas refatorei a estrutura delas para obter dados dinâmicos com o nunjucks.
 
 
