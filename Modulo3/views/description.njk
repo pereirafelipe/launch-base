@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <title>Rocketseat | Cursos</title>
+{% endblock head %}
+
+{% block content %}
+  <h1 class="page_title">Cursos</h1>
+
+  <section class="cards">
+
+    <div class="card b_rocket" id="{{course.id}}">
+      <div class="card_number">
+        {{course.number}}
+      </div>
+      <div class="card_image">
+        <img src="/assets/{{course.id}}.svg" alt=""/>
+      </div>
+      <div class="card_content">
+        <p>
+          <strong>{{course.strong}}</strong>
+          {{course.description}}
+        </p>
+      </div>
+      <div class="card_info">
+        <p>{{course.modules}}</p>
+        <div class="p_price">
+          <p>{{course.price}}</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="/scripts.js"></script>
+{% endblock content %}
