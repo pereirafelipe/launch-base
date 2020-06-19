@@ -6,5 +6,10 @@
   <img src="https://user-images.githubusercontent.com/48728541/84934357-955dba80-b0ad-11ea-8364-0261c09d7aff.png" />
 </p>
 
+### Utilizando os primeiros conceitos aprendidos de HTML e CSS 
 
+- Tags
+- Grid e Flex
+- Classes e Ids
+- Seletores
 
