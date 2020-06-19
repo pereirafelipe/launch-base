@@ -6,6 +6,8 @@
   <img src="https://user-images.githubusercontent.com/48728541/84934357-955dba80-b0ad-11ea-8364-0261c09d7aff.png" />
 </p>
 
-**Utilizando nunjucks**
+### Utilização do Nunjucks
+
+Nesses desafios foram utilizadas as mesmas páginas do desafio anterior, apenas refatorei a estrutura das páginas para obter dados dinâmicos com o nunjucks.
 
 
