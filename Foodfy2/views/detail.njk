@@ -1,5 +1,9 @@
 {% extends "layout.njk" %}
 
+{% block head %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+{% endblock head %}
+
 {% block content %}
   <main>
     <section class="detail">
@@ -11,14 +15,33 @@
       <p>autor</p>
 
       <div class="ingredients">
-        <h3>Ingredientes</h3>
+        <div class="ingredients__header">
+          <h3>Ingredientes</h3>
+          <span class="material-icons">
+            arrow_drop_down
+          </span>
+
+          <span class="material-icons">
+            arrow_drop_up
+          </span>
+        </div>
         <ul>
           <li>Item</li>
         </ul>
       </div>
 
       <div class="preparation">
-        <h3>Modo de preparo</h3>
+        <div class="preparation__header">
+          <h3>Modo de preparo</h3>
+          <span class="material-icons">
+            arrow_drop_down
+          </span>
+
+          <span class="material-icons">
+            arrow_drop_up
+          </span>
+        </div>
+
         <ul>
           <li>Item</li>
         </ul>
