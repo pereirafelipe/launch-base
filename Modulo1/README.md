@@ -1,5 +1,9 @@
 <h1 align="center">Introdução à programação WEB</h1>
 
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/48728541/85210023-1cf83300-b313-11ea-9676-3b87ac97a3d8.png" />
+</p>
+
 ## Sumário:
 
 - [Variáveis](#ancora1)
