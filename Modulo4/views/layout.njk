@@ -15,9 +15,11 @@
 
   </head>
   <body>
-    <header class="header__links">
-      <a href="/teachers">Teachers</a>
-      <a href="/students">Students</a>
+    <header>
+      <div class="header__links">
+        <a class="active" href="/teachers">Teachers</a>
+        <a href="/students">Students</a>
+      </div>
     </header>
 
     {% block content %}{% endblock content %}
