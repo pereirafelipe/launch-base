@@ -7,7 +7,7 @@ routes.get("/", (req, res) => {
 });
 
 routes.get("/instructors", (req, res) => {
-  return res.send("Instructors route is ok!");
+  return res.render("instructors");
 });
 
 routes.get("/members", (req, res) => {
