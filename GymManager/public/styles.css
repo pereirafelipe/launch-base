@@ -96,6 +96,7 @@ a.active {
   font-weight: normal;
 }
 
+input,
 .content .item div:nth-child(2) {
   color: #555;
   font-size: 16px;
@@ -118,4 +119,25 @@ a.active {
   background-color: #f7df1e;
   margin-right: 8px;
   margin-top: 8px;
+}
+
+input {
+  width: 100%;
+  outline: none;
+}
+
+input[type="radio"] {
+  width: initial;
+  margin-right: 4px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 32px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #7159c1;
+  border-radius: 4px;
+  font-weight: bold;
 }
