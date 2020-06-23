@@ -4,7 +4,9 @@
   "description": "Controle de academia",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "npm-run-all -p nodemon browsersync",
+    "nodemon": "nodemon server.js",
+    "browsersync": "browser-sync start --proxy https://localhost:5000/ --file 'public, views'"
   },
   "keywords": [],
   "author": "Fernanda Leite",
