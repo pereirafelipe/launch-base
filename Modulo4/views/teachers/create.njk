@@ -1,0 +1,67 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="container">
+    <section class="avatar"></section>
+    <section class="detail">
+      <form class="content" method="post" action="/teachers">
+        <h3>Novo Professor</h3>
+
+        <div class="item">
+          <div>Avatar URL</div>
+          <div>
+            <input type="url" name="avatar_url" placeholder="http://">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Professor</div>
+          <div>
+            <input type="text" name="name" placeholder="Nome completo do professor">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Data de nascimento</div>
+          <div>
+            <input type="date" name="birth">
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Grau de escolaridade</div>
+          <div>
+            <select name="schooling">
+              <option value="high_school">Ensino Médio</option>
+              <option value="university">Ensino Superior Completo</option>
+              <option value="master">Mestrado</option>
+              <option value="doctorate">Doutorado</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Tipo de aula</div>
+          <div>
+            <span><input type="radio" name="type_class" value="P" id="pres" checked="checked">
+              <label for="pres">Presencial</label>
+            </span>
+            <span><input type="radio" name="type_class" value="D" id="dist">
+              <label for="dist">À distância</label>
+            </span>
+
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Área de atuação</div>
+          <div>
+            <input type="text" name="services" placeholder="Ex: Matemática, Física">
+          </div>
+
+          <button type="submit">Salvar</button>
+        </form>
+
+      </section>
+    </div>
+  {% endblock content %}
