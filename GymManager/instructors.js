@@ -13,6 +13,7 @@ exports.post = (req, res) => {
 
   req.body.birth = Date.parse(req.body.birth);
   req.body.created_at = Date.now();
+  req.body.id = Number(data.instructors.length + 1);
 
   data.instructors.push(req.body);
 
