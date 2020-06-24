@@ -1,13 +1,22 @@
 {
   "instructors": [
     {
+      "id": 1,
+      "avatar_url": "http://google.com",
+      "name": "João Lucas",
+      "birth": 811382400000,
+      "gender": "M",
+      "services": "Crossfit",
+      "created_at": 1593035170012
+    },
+    {
+      "id": 2,
       "avatar_url": "http://google.com",
       "name": "Fernanda Caroline Leite",
-      "birth": 965865600000,
+      "birth": 555552000000,
       "gender": "F",
-      "services": "Crossfit, Musculação",
-      "created_at": 1593034609895,
-      "id": 1
+      "services": "Crossfit",
+      "created_at": 1593035934114
     }
   ]
 }
