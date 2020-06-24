@@ -1,3 +1,41 @@
 {% extends "layout.njk" %}
 
-{% block content %}{% endblock content %}
+{% block content %}
+  <div class="container">
+    <section class="avatar"></section>
+    <section class="detail">
+      <div class="content">
+        <h3>Detalhes</h3>
+
+        <div class="item">
+          <div>Nome completo:</div>
+          <div>José Carlos Souza</div>
+        </div>
+
+        <div class="item">
+          <div>Idade</div>
+          <div>46</div>
+        </div>
+
+        <div class="item">
+          <div>Grau de escolaridade</div>
+          <div>Doutorado</div>
+        </div>
+
+        <div class="item">
+          <div>Acompanhamento</div>
+          <div>
+            <span>Matemática</span>
+            <span>Física</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div>Desde</div>
+          <div>01/01/2019</div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+{% endblock content %}
