@@ -12,7 +12,7 @@ exports.post = (req, res) => {
   });
 
   req.body.birth = Date.parse(req.body.birth);
-  req.body.crested_at = Date.now();
+  req.body.created_at = Date.now();
 
   data.instructors.push(req.body);
 
