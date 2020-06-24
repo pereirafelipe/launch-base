@@ -11,6 +11,9 @@ exports.post = (req, res) => {
     }
   });
 
+  req.body.birth = Date.parse(req.body.birth);
+  req.body.crested_at = Date.now();
+
   data.instructors.push(req.body);
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {

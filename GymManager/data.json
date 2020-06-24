@@ -2,24 +2,11 @@
   "instructors": [
     {
       "avatar_url": "http://google.com",
-      "name": "Fernanda Caroline Leite",
-      "birth": "1000-02-10",
-      "gender": "M",
-      "services": "Crossfit, futebol"
-    },
-    {
-      "avatar_url": "http://google.com",
-      "name": "Nane Leite",
-      "birth": "1981-03-31",
+      "name": "Fernanda Leite",
+      "birth": 965865600000,
       "gender": "F",
-      "services": "Crossfit"
-    },
-    {
-      "avatar_url": "http://google.com",
-      "name": "José",
-      "birth": "2000-04-12",
-      "gender": "M",
-      "services": "Crossfit"
+      "services": "Crossfit, futebol",
+      "crested_at": 1592963677174
     }
   ]
 }
