@@ -37,10 +37,17 @@ exports.show = (req, res) => {
   const { id } = req.params;
 
   const foundInstructor = data.instructors.find((instructor) => {
-    return instructor.id === id;
+    return instructor.id == id;
   });
 
   if (!foundInstructor) return res.send("Instructor not found!");
 
-  return res.render(`/instructor/${id}`, { instructor: foundInstructor });
+  const instructor = {
+    ...foundInstructor,
+    age: "",
+    services: foundInstructor.services.split(","),
+    created_at: "",
+  };
+
+  return res.render("instructors/show", { instructor });
 };
