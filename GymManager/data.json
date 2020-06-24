@@ -1,1 +1,25 @@
-{"avatar_url":"http://google.com","name":"Nane Leite","birth":"2000-08-10","gender":"F","services":"Crossfit, futebol"}
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com",
+      "name": "Fernanda Caroline Leite",
+      "birth": "1000-02-10",
+      "gender": "M",
+      "services": "Crossfit, futebol"
+    },
+    {
+      "avatar_url": "http://google.com",
+      "name": "Nane Leite",
+      "birth": "1981-03-31",
+      "gender": "F",
+      "services": "Crossfit"
+    },
+    {
+      "avatar_url": "http://google.com",
+      "name": "José",
+      "birth": "2000-04-12",
+      "gender": "M",
+      "services": "Crossfit"
+    }
+  ]
+}

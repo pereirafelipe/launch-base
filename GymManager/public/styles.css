@@ -140,4 +140,5 @@ button[type="submit"] {
   background-color: #7159c1;
   border-radius: 4px;
   font-weight: bold;
+  outline: none;
 }
