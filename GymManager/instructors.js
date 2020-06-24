@@ -1,6 +1,7 @@
+const fs = require("fs");
+
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
-  const { avatar_url, name, birth, gender, services } = req.body;
 
   keys.map((key) => {
     if (req.body[key] === "") {
@@ -8,5 +9,9 @@ exports.post = (req, res) => {
     }
   });
 
-  return res.send("Data received!");
+  fs.writeFile("data.json", JSON.stringify(req.body), (err) => {
+    if (err) return res.send("Write file error!");
+
+    return res.redirect("/instructors");
+  });
 };
