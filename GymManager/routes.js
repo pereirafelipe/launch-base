@@ -1,5 +1,7 @@
 const express = require("express");
 
+const createInstructor = require("./instructors");
+
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
@@ -18,15 +20,6 @@ routes.get("/instructors/create", (req, res) => {
   return res.render("instructors/create");
 });
 
-routes.post("/instructors", (req, res) => {
-  const keys = Object.keys(req.body);
-  const { avatar_url, name, birth, gender, services } = req.body;
-
-  keys.map((key) => {
-    if (req.body[key] !== "") res.send("Please, fill all fields!");
-  });
-
-  return res.send("Data received!");
-});
+routes.post("/instructors", createInstructor.post);
 
 module.exports = routes;
