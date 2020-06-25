@@ -143,6 +143,7 @@ button[type="submit"] {
   border-radius: 4px;
   font-weight: bold;
   outline: none;
+  cursor: pointer;
 }
 
 select {
