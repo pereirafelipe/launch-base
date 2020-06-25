@@ -34,3 +34,22 @@ exports.create = (req, res) => {
     return res.redirect("/teachers");
   });
 };
+
+exports.show = (req, res) => {
+  const { id } = req.params;
+
+  const foundTeacher = data.teachers.find((teacher) => {
+    return teacher.id == id;
+  });
+
+  if (!foundTeacher) return res.send("Teacher not found!");
+
+  const teacher = {
+    ...foundTeacher,
+    age: 19,
+    services: foundTeacher.services.split(","),
+    created_at: "",
+  };
+
+  return res.render("teachers/show", { teacher });
+};
