@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const data = require("./data.json");
+const { handleAge } = require("./utils");
 
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
@@ -44,7 +45,7 @@ exports.show = (req, res) => {
 
   const instructor = {
     ...foundInstructor,
-    age: "",
+    age: handleAge(foundInstructor.birth),
     services: foundInstructor.services.split(","),
     created_at: "",
   };
