@@ -135,3 +135,25 @@ button[type="submit"] {
   font-weight: bold;
   outline: none;
 }
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+a.button {
+  margin-top: 32px;
+  margin-left: 16px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #7159c1;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  outline: none;
+}
+
+.buttons a:last-child {
+  background-color: #d13636;
+}
