@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { create, show } = require("./instructors");
+const { create, show, update } = require("./instructors");
 
 const routes = express.Router();
 
@@ -20,9 +20,7 @@ routes.post("/instructors", create);
 
 routes.get("/instructors/:id", show);
 
-routes.get("/instructors/:id/edit", (req, res) => {
-  return res.render("instructors/edit");
-});
+routes.get("/instructors/:id/edit", update);
 
 routes.get("/members", (req, res) => {
   return res.send("Members route is ok!");

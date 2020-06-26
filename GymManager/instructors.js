@@ -43,9 +43,11 @@ exports.show = (req, res) => {
 
   if (!foundInstructor) return res.send("Instructor not found!");
 
-  const date = new Intl.DateTimeFormat("pt-BR").format(
-    foundInstructor.created_at
-  );
+  const date = new Intl.DateTimeFormat("pt-BR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(foundInstructor.created_at);
 
   const instructor = {
     ...foundInstructor,
@@ -55,4 +57,27 @@ exports.show = (req, res) => {
   };
 
   return res.render("instructors/show", { instructor });
+};
+
+exports.update = (req, res) => {
+  const { id } = req.params;
+
+  const foundInstructor = data.instructors.find((instructor) => {
+    return instructor.id == id;
+  });
+
+  if (!foundInstructor) return res.send("Instructor not found!");
+
+  const date = new Intl.DateTimeFormat("pt-BR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(foundInstructor.birth);
+
+  const instructor = {
+    ...foundInstructor,
+    birth: date,
+  };
+
+  return res.render("instructors/edit", { instructor });
 };
