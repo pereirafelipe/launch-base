@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-const data = require("./data.json");
-const { handleAge, handleDate } = require("./utils");
+const data = require("../data.json");
+const { handleAge, handleDate } = require("../utils");
 
 exports.index = (req, res) => {
   const instructors = data.instructors.map((instructor) => {
