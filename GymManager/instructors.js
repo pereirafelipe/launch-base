@@ -3,6 +3,19 @@ const fs = require("fs");
 const data = require("./data.json");
 const { handleAge, handleDate } = require("./utils");
 
+exports.index = (req, res) => {
+  const instructors = data.instructors.map((instructor) => {
+    const formatServices = instructor.services.split(",");
+    const foundInstructor = {
+      ...instructor,
+      services: formatServices,
+    };
+    return foundInstructor;
+  });
+
+  return res.render("instructors/index", { instructors });
+};
+
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
   let { avatar_url, name, birth, gender, services } = req.body;
@@ -103,6 +116,7 @@ exports.update = (req, res) => {
     ...foundInstructor,
     ...req.body,
     birth,
+    id: Number(req.body.id),
   };
 
   data.instructors[index] = instructor;
