@@ -61,3 +61,27 @@ exports.show = (req, res) => {
 
   return res.render("teachers/show", { teacher });
 };
+
+exports.update = (req, res) => {
+  const { id } = req.params;
+
+  const foundTeacher = data.teachers.find((teacher) => {
+    return teacher.id == id;
+  });
+
+  if (!foundTeacher) return res.send("Instructor not found!");
+
+  const date = new Intl.DateTimeFormat("pt-BR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    timeZone: "UTC",
+  }).format(foundTeacher.birth);
+
+  const teacher = {
+    ...foundTeacher,
+    birth: date,
+  };
+
+  return res.render("teachers/edit", { teacher });
+};
