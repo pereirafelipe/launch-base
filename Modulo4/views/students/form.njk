@@ -6,9 +6,16 @@
 </div>
 
 <div class="item">
-  <div>Professor</div>
+  <div>Estudante</div>
   <div>
-    <input type="text" name="name" placeholder="Nome completo do professor" value="{{student.name}}">
+    <input type="text" name="name" placeholder="Nome completo do estudante" value="{{student.name}}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Email</div>
+  <div>
+    <input type="email" name="email" placeholder="Email do estudante" value="{{student.name}}">
   </div>
 </div>
 
@@ -20,34 +27,34 @@
 </div>
 
 <div class="item">
-  <div>Grau de escolaridade</div>
+  <div>Ano escolar</div>
   <div>
-    <select name="schooling">
-      <option value="em" {% if student.schooling == "em" %} selected="selected" {% endif %}>Ensino Médio</option>
-      <option value="u" {% if student.schooling == "u" %} selected="selected" {% endif %}>Ensino Superior Completo</option>
-      <option value="m" {% if student.schooling == "m" %} selected="selected" {% endif %}>Mestrado</option>
-      <option value="d" {% if student.schooling == "d" %} selected="selected" {% endif %}>Doutorado</option>
+    <select name="schoolYear">
+      <option value="5EF">5º ano do ensino fundamental
+      </option>
+      <option value="6EF">6º ano do ensino fundamental
+      </option>
+      <option value="7EF">7º ano do ensino fundamental
+      </option>
+      <option value="8EF">8º ano do ensino fundamental
+      </option>
+      <option value="9EF">9º ano do ensino fundamental
+      </option>
+      <option value="1EM">1º ano do ensino médio
+      </option>
+      <option value="2EM">2º ano do ensino médio
+      </option>
+      <option value="3EM">3º ano do ensino médio
+      </option>
     </select>
   </div>
 </div>
 
 <div class="item">
-  <div>Tipo de aula</div>
+  <div>Carga horária semanal (h)</div>
   <div>
-    <span><input type="radio" name="type_class" value="P" id="pres" {% if student.type_class == "P" %} checked="checked" {% endif %}>
-      <label for="pres">Presencial</label>
-    </span>
-    <span><input type="radio" name="type_class" value="D" id="dist" {% if student.type_class == "D" %} checked="checked" {% endif %}>
-      <label for="dist">À distância</label>
-    </span>
-
+    <input type="number" name="workload" value="{{student.birth}}">
   </div>
 </div>
 
-<div class="item">
-  <div>Área de atuação</div>
-  <div>
-    <input type="text" name="services" placeholder="Ex: Matemática, Física" value="{{student.services}}">
-  </div>
-
-  <button type="submit">Salvar</button>
+<button type="submit">Salvar</button>
