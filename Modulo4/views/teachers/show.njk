@@ -50,9 +50,13 @@
         </div>
 
         <div class="buttons">
-          <a class="button" href="#">Editar</a>
-          <a class="button" href="#">Deletar</a>
+          <a class="button" href="/teachers/{{teacher.id}}/edit">Editar</a>
+          <form method="POST" action="/teachers?_method=DELETE">
+            <input type="hidden" name="id" value="{{teacher.id}}">
+            <button type="submit">Deletar</button>
+          </form>
         </div>
+
       </div>
 
     </section>

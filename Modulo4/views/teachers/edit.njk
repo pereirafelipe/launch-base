@@ -4,10 +4,12 @@
   <div class="container">
     <section class="avatar" style="background: url({{teacher.avatar_url}}) no-repeat center / cover"></section>
     <section class="detail">
-      <form class="content" method="post" action="/teachers">
+      <form class="content" method="POST" action="/teachers?_method=PUT">
         <h3>Editar Professor</h3>
 
         {% include 'teachers/form.njk' %}
+
+        <input type="hidden" name="id" value="{{teacher.id}}">
 
       </form>
 
