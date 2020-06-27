@@ -143,7 +143,7 @@ button[type="submit"] {
 
 a.button {
   margin-top: 32px;
-  margin-left: 16px;
+  margin-right: 16px;
   padding: 8px 16px;
   font-size: 16px;
   color: #fff;
@@ -154,6 +154,6 @@ a.button {
   outline: none;
 }
 
-.buttons a:last-child {
+.buttons form button {
   background-color: #d13636;
 }

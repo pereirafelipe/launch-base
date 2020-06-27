@@ -40,7 +40,10 @@
 
         <div class="buttons">
           <a class="button" href="/instructors/{{instructor.id}}/edit">Editar</a>
-          <a class="button" href="#">Deletar</a>
+          <form method="POST" action="/instructors?_method=DELETE">
+            <input type="hidden" name="id" value="{{instructor.id}}">
+            <button type="submit">Deletar</button>
+          </form>
         </div>
 
       </div>
