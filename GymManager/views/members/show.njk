@@ -54,7 +54,7 @@
 
         <div class="buttons">
           <a class="button" href="/members/{{member.id}}/edit">Editar</a>
-          <form method="POST" action="/members?_method=DELETE">
+          <form id="form-delete" method="POST" action="/members?_method=DELETE">
             <input type="hidden" name="id" value="{{member.id}}">
             <button type="submit">Deletar</button>
           </form>
@@ -63,5 +63,15 @@
       </div>
 
     </section>
+
+    <script>
+      const formDelete = document.querySelector("#form-delete");
+      formDelete.addEventListener("submit", (event) => {
+        const confirmation = confirm("Tem certeza que você quer deletar esse membro?");
+        if (!confirmation) {
+          event.preventDefault();
+        }
+      });
+    </script>
   </div>
 {% endblock content %}
