@@ -142,6 +142,12 @@ button[type="submit"] {
   outline: none;
 }
 
+select {
+  background: transparent;
+  width: 100%;
+  outline: none;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-end;
@@ -170,6 +176,7 @@ a.button {
 }
 
 .table-container table {
+  margin-top: 16px;
   border-spacing: 0;
 }
 

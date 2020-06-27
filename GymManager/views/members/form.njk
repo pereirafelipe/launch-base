@@ -6,9 +6,16 @@
 </div>
 
 <div class="item">
-  <div>Instrutor</div>
+  <div>Nome</div>
   <div>
-    <input type="text" name="name" placeholder="Nome do Instrutor" value="{{instructor.name}}">
+    <input type="text" name="name" placeholder="Nome do Membro" value="{{instructor.name}}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Email</div>
+  <div>
+    <input type="email" name="email" placeholder="Email do Membro" value="{{instructor.name}}">
   </div>
 </div>
 
@@ -35,9 +42,32 @@
 </div>
 
 <div class="item">
-  <div>Área de atuação</div>
+  <div>Tipo Sanguíneo</div>
   <div>
-    <input type="text" name="services" placeholder="Separe os serviços prestados por vírgula" value="{{instructor.services}}">
+    <select name="blood">
+      <option value="A1" {% if member.blood == "A1" %} selected="selected" {% endif %}>A+</option>
+      <option value="A2" {% if member.blood == "A2" %} selected="selected" {% endif %}>A-</option>
+      <option value="B1" {% if member.blood == "B1" %} selected="selected" {% endif %}>B+</option>
+      <option value="B2" {% if member.blood == "B2" %} selected="selected" {% endif %}>B-</option>
+      <option value="AB1" {% if member.blood == "AB1" %} selected="selected" {% endif %}>AB+</option>
+      <option value="AB2" {% if member.blood == "AB2" %} selected="selected" {% endif %}>AB-</option>
+      <option value="O1" {% if member.blood == "O1" %} selected="selected" {% endif %}>O+</option>
+      <option value="O2" {% if member.blood == "O1" %} selected="selected" {% endif %}>O-</option>
+    </select>
+  </div>
+</div>
+
+<div class="item">
+  <div>Peso (kg)</div>
+  <div>
+    <input type="number" name="weight" value="{{instructor.birth}}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Altura (cm)</div>
+  <div>
+    <input type="number" name="height" value="{{instructor.birth}}">
   </div>
 </div>
 
