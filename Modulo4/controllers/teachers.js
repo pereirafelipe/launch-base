@@ -1,8 +1,8 @@
 const fs = require("fs");
 const crypto = require("crypto");
 
-const data = require("./data.json");
-const { handleAge, handleDate, handleGraduation } = require("./utils");
+const data = require("../data.json");
+const { handleAge, handleDate, handleGraduation } = require("../utils");
 
 exports.index = (req, res) => {
   const teachers = data.teachers.map((teacher) => {
