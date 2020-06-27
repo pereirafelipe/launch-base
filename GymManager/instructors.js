@@ -47,6 +47,7 @@ exports.show = (req, res) => {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
+    timeZone: "UTC",
   }).format(foundInstructor.created_at);
 
   const instructor = {
@@ -72,6 +73,7 @@ exports.showEdit = (req, res) => {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
+    timeZone: "UTC",
   }).format(foundInstructor.birth);
 
   const instructor = {
