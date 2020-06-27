@@ -30,6 +30,17 @@
       "blood": "O+",
       "weight": "65",
       "height": "170"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=879&q=80",
+      "name": "Leonardo Henrique de Oliveira",
+      "email": "leohenrique@gmail.com",
+      "birth": 817171200000,
+      "gender": "M",
+      "blood": "O+",
+      "weight": "75",
+      "height": "180"
     }
   ]
 }

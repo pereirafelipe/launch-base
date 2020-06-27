@@ -7,24 +7,30 @@
       <thead>
         <tr>
           <th>Instrutor</th>
-          <th>Atendimento</th>
+          <th>Email</th>
+          <th>Peso</th>
+          <th>Altura</th>
           <th>Ação</th>
         </tr>
       </thead>
       <tbody>
-        {% for instructor in instructors %}
+        {% for member in members %}
           <tr>
             <td>
-              <span style="background: url({{instructor.avatar_url}}) no-repeat center / cover"></span>
-              <p>{{instructor.name}}</p>
+              <span style="background: url({{member.avatar_url}}) no-repeat center / cover"></span>
+              <p>{{member.name}}</p>
             </td>
             <td>
-              {% for service in instructor.services %}
-                <span class="table-services">{{service}}</span>
-              {% endfor %}
+              {{member.email}}
             </td>
             <td>
-              <a class="button" href="/instructors/{{instructor.id}}">Ver</a>
+              {{member.weight}}kg
+            </td>
+            <td>
+              {{member.height}}cm
+            </td>
+            <td>
+              <a class="button" href="/members/{{member.id}}">Ver</a>
             </td>
           </tr>
         {% endfor %}
