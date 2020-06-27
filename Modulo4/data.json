@@ -7,7 +7,7 @@
       "birth": 965865600000,
       "schooling": "em",
       "type_class": "D",
-      "services": "Matemática, Computação",
+      "services": "Matemática, Programação",
       "created_at": 1593046170283
     },
     {
@@ -29,16 +29,6 @@
       "type_class": "P",
       "services": "Física, Eletrônica, Computação",
       "created_at": 1593222933581
-    },
-    {
-      "id": "94de8768a824",
-      "avatar_url": "https://images.unsplash.com/photo-1504703395950-b89145a5425b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=351&q=80",
-      "name": "Nane Leite",
-      "birth": 376790400000,
-      "schooling": "u",
-      "type_class": "P",
-      "services": "Português, Geografia",
-      "created_at": 1593223134528
     }
   ]
 }
