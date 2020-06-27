@@ -4,6 +4,19 @@ const crypto = require("crypto");
 const data = require("./data.json");
 const { handleAge, handleDate, handleGraduation } = require("./utils");
 
+exports.index = (req, res) => {
+  const teachers = data.teachers.map((teacher) => {
+    const formatServices = teacher.services.split(",");
+    const foundTeacher = {
+      ...teacher,
+      services: formatServices,
+    };
+    return foundTeacher;
+  });
+
+  return res.render("teachers/index", { teachers });
+};
+
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
   let { avatar_url, name, birth, schooling, type_class, services } = req.body;

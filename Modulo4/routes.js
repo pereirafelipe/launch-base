@@ -1,6 +1,13 @@
 const express = require("express");
 
-const { create, show, showEdit, update, deleteUser } = require("./teachers");
+const {
+  index,
+  create,
+  show,
+  showEdit,
+  update,
+  deleteUser,
+} = require("./teachers");
 
 const routes = express.Router();
 
@@ -8,9 +15,7 @@ routes.get("/", (req, res) => {
   return res.redirect("/teachers");
 });
 
-routes.get("/teachers", (req, res) => {
-  return res.render("teachers/index");
-});
+routes.get("/teachers", index);
 
 routes.get("/teachers/create", (req, res) => {
   return res.render("teachers/create");
