@@ -2,14 +2,14 @@ const fs = require("fs");
 const crypto = require("crypto");
 
 const data = require("../data.json");
-const { handleAge, handleDate, handleGraduation } = require("../utils");
+const { handleDate, handleSchollYear } = require("../utils");
 
 exports.index = (req, res) => {
   const students = data.students.map((student) => {
-    const formatServices = student.services.split(",");
+    const formatSchoolYear = handleSchollYear(student.schoolYear);
     const foundStudent = {
       ...student,
-      services: formatServices,
+      schoolYear: formatSchoolYear,
     };
     return foundStudent;
   });
@@ -19,7 +19,7 @@ exports.index = (req, res) => {
 
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
-  let { avatar_url, name, birth, schooling, type_class, services } = req.body;
+  let { avatar_url, name, email, birth, schoolYear, workload } = req.body;
 
   keys.map((key) => {
     if (req.body[key] === "") {
@@ -28,18 +28,16 @@ exports.create = (req, res) => {
   });
 
   birth = Date.parse(req.body.birth);
-  const created_at = Date.now();
   const id = crypto.randomBytes(6).toString("hex");
 
   data.students.push({
     id,
     avatar_url,
     name,
+    email,
     birth,
-    schooling,
-    type_class,
-    services,
-    created_at,
+    schoolYear,
+    workload,
   });
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
@@ -56,20 +54,18 @@ exports.show = (req, res) => {
     return student.id == id;
   });
 
-  if (!foundStudent) return res.send("Teacher not found!");
+  if (!foundStudent) return res.send("Student not found!");
 
-  const date = new Intl.DateTimeFormat("pt-BR", {
+  const birthDay = new Intl.DateTimeFormat("pt-BR", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(foundStudent.created_at);
+  }).format(foundStudent.birth);
 
   const student = {
     ...foundStudent,
-    schooling: handleGraduation(foundStudent.schooling),
-    age: handleAge(foundStudent.birth),
-    services: foundStudent.services.split(","),
-    created_at: handleDate(date),
+    schoolYear: handleSchollYear(foundStudent.schoolYear),
+    birth: handleDate(birthDay),
   };
 
   return res.render("students/show", { student });
