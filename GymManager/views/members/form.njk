@@ -22,7 +22,7 @@
 <div class="item">
   <div>Data de nascimento</div>
   <div>
-    <input type="date" name="birth" value="{{instructor.birth}}">
+    <input type="date" name="birth" value="{{member.birth}}">
   </div>
 </div>
 
@@ -30,11 +30,11 @@
   <div>Sexo</div>
   <div>
     <span>
-      <input type="radio" name="gender" value="M" id="male" {% if instructor.gender == "M" %} checked="checked" {% endif %}>
+      <input type="radio" name="gender" value="M" id="male" {% if member.gender == "M" %} checked="checked" {% endif %}>
       <label for="male">Masculino</label>
     </span>
     <span>
-      <input type="radio" name="gender" value="F" id="female" {% if instructor.gender == "F" %} checked="checked" {% endif %}>
+      <input type="radio" name="gender" value="F" id="female" {% if member.gender == "F" %} checked="checked" {% endif %}>
       <label for="female">Feminino</label>
     </span>
 
@@ -45,14 +45,14 @@
   <div>Tipo Sanguíneo</div>
   <div>
     <select name="blood">
-      <option value="A1" {% if member.blood == "A1" %} selected="selected" {% endif %}>A+</option>
-      <option value="A2" {% if member.blood == "A2" %} selected="selected" {% endif %}>A-</option>
-      <option value="B1" {% if member.blood == "B1" %} selected="selected" {% endif %}>B+</option>
-      <option value="B2" {% if member.blood == "B2" %} selected="selected" {% endif %}>B-</option>
-      <option value="AB1" {% if member.blood == "AB1" %} selected="selected" {% endif %}>AB+</option>
-      <option value="AB2" {% if member.blood == "AB2" %} selected="selected" {% endif %}>AB-</option>
-      <option value="O1" {% if member.blood == "O1" %} selected="selected" {% endif %}>O+</option>
-      <option value="O2" {% if member.blood == "O1" %} selected="selected" {% endif %}>O-</option>
+      <option value="A+" {% if member.blood == "A+" %} selected="selected" {% endif %}>A+</option>
+      <option value="A-" {% if member.blood == "A-" %} selected="selected" {% endif %}>A-</option>
+      <option value="B+" {% if member.blood == "B+" %} selected="selected" {% endif %}>B+</option>
+      <option value="B-" {% if member.blood == "B-" %} selected="selected" {% endif %}>B-</option>
+      <option value="AB+" {% if member.blood == "AB+" %} selected="selected" {% endif %}>AB+</option>
+      <option value="AB-" {% if member.blood == "AB-" %} selected="selected" {% endif %}>AB-</option>
+      <option value="O+" {% if member.blood == "O+" %} selected="selected" {% endif %}>O+</option>
+      <option value="O-" {% if member.blood == "O-" %} selected="selected" {% endif %}>O-</option>
     </select>
   </div>
 </div>
@@ -60,14 +60,14 @@
 <div class="item">
   <div>Peso (kg)</div>
   <div>
-    <input type="number" name="weight" value="{{instructor.birth}}">
+    <input type="number" name="weight" value="{{member.weight}}">
   </div>
 </div>
 
 <div class="item">
   <div>Altura (cm)</div>
   <div>
-    <input type="number" name="height" value="{{instructor.birth}}">
+    <input type="number" name="height" value="{{member.height}}">
   </div>
 </div>
 

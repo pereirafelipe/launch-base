@@ -19,5 +19,17 @@
       "created_at": 1593227605924
     }
   ],
-  "members": []
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1520466809213-7b9a56adcd45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "Julia de Souza Melo",
+      "email": "juliamelo@gmail.com",
+      "birth": 897436800000,
+      "gender": "F",
+      "blood": "O+",
+      "weight": "65",
+      "height": "170"
+    }
+  ]
 }

@@ -1,24 +1,26 @@
 const fs = require("fs");
 
 const data = require("../data.json");
-const { handleAge, handleDate } = require("../utils");
+const { handleDate } = require("../utils");
 
 exports.index = (req, res) => {
-  const members = data.members.map((member) => {
-    const formatServices = member.services.split(",");
-    const foundMember = {
-      ...member,
-      services: formatServices,
-    };
-    return foundMember;
-  });
+  const members = data.members;
 
   return res.render("members/index", { members });
 };
 
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
-  let { avatar_url, name, birth, gender, services } = req.body;
+  let {
+    avatar_url,
+    name,
+    email,
+    birth,
+    gender,
+    blood,
+    weight,
+    height,
+  } = req.body;
 
   keys.map((key) => {
     if (req.body[key] === "") {
@@ -27,17 +29,24 @@ exports.create = (req, res) => {
   });
 
   birth = Date.parse(req.body.birth);
-  created_at = Date.now();
-  id = Number(data.members.length + 1);
+
+  let id = 1;
+  const lastMember = data.members[data.members.length - 1];
+
+  if (lastMember) {
+    id = lastMember.id + 1;
+  }
 
   data.members.push({
     id,
     avatar_url,
     name,
+    email,
     birth,
     gender,
-    services,
-    created_at,
+    blood,
+    weight,
+    height,
   });
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
@@ -56,18 +65,16 @@ exports.show = (req, res) => {
 
   if (!foundMember) return res.send("Member not found!");
 
-  const date = new Intl.DateTimeFormat("pt-BR", {
+  const birthDay = new Intl.DateTimeFormat("pt-BR", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
     timeZone: "UTC",
-  }).format(foundMember.created_at);
+  }).format(foundMember.birth);
 
   const member = {
     ...foundMember,
-    age: handleAge(foundMember.birth),
-    services: foundMember.services.split(","),
-    created_at: handleDate(date),
+    age: handleDate(birthDay),
   };
 
   return res.render("members/show", { member });
