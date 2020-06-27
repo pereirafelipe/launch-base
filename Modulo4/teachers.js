@@ -2,6 +2,7 @@ const fs = require("fs");
 const crypto = require("crypto");
 
 const data = require("./data.json");
+const { handleAge, handleDate, handleGraduation } = require("./utils");
 
 exports.create = (req, res) => {
   const keys = Object.keys(req.body);
@@ -44,11 +45,18 @@ exports.show = (req, res) => {
 
   if (!foundTeacher) return res.send("Teacher not found!");
 
+  const date = new Intl.DateTimeFormat("pt-BR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(foundTeacher.created_at);
+
   const teacher = {
     ...foundTeacher,
-    age: 19,
+    schooling: handleGraduation(foundTeacher.schooling),
+    age: handleAge(foundTeacher.birth),
     services: foundTeacher.services.split(","),
-    created_at: "",
+    created_at: handleDate(date),
   };
 
   return res.render("teachers/show", { teacher });

@@ -20,15 +20,7 @@
         <div class="item">
           <div>Grau de escolaridade</div>
           <div>
-            {% if teacher.schooling === "em" %}
-              Ensino Médio
-            {% elif teacher.schooling === "u" %}
-              Ensino Superior Completo
-            {% elif teacher.schooling === "m" %}
-              Mestrado
-            {% else %}
-              Doutorado
-            {% endif %}
+            {{teacher.schooling}}
           </div>
         </div>
 
@@ -54,7 +46,7 @@
 
         <div class="item">
           <div>Desde</div>
-          <div>01/01/2019</div>
+          <div>{{teacher.created_at}}</div>
         </div>
       </div>
 
