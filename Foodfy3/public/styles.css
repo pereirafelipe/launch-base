@@ -196,6 +196,7 @@ h2 {
 }
 
 .detail__image img {
+  width: 100%;
   border-radius: 15px;
 }
 
@@ -361,7 +362,7 @@ h2 {
   justify-content: center;
   text-decoration: none;
   color: #eee;
-  background-color: #111111;
+  background-color: #6558c3;
   border-radius: 8.57px;
   padding: 12px 0;
   transition: all 0.3s ease-in-out;
@@ -369,7 +370,7 @@ h2 {
 
 .new__recipe:hover {
   background-color: transparent;
-  color: #111111;
+  color: #6558c3;
 }
 
 .new__recipe div {
@@ -381,4 +382,30 @@ h2 {
   border-radius: 50%;
   margin-right: 16px;
   background-color: #ffffff3d;
+}
+
+.detail__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.detail__header h3 {
+  font-size: 24px;
+  color: #111111;
+}
+
+.detail__edit {
+  padding: 8px 16px;
+  background-color: #6558c3;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.detail__edit:hover {
+  opacity: 0.5;
 }
