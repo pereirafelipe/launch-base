@@ -322,7 +322,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
-  cursor: pointer;
 }
 
 .admin__recipe .recipe__image img {
@@ -352,6 +351,7 @@ h2 {
   font-size: 14px;
   color: #6558c3;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .new__recipe {
@@ -364,7 +364,7 @@ h2 {
   background-color: #111111;
   border-radius: 8.57px;
   padding: 12px 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .new__recipe:hover {

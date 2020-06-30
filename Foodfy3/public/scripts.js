@@ -7,6 +7,15 @@ for (let i = 0; i < recipes.length; i++) {
   });
 }
 
+const viewLink = document.querySelectorAll(".recipe__link");
+
+for (let i = 0; i < viewLink.length; i++) {
+  const link = viewLink[i];
+  link.addEventListener("click", () => {
+    window.location.href = `/admin/recipes/${i}`;
+  });
+}
+
 const ingredients = document.querySelector(".ingredients ul");
 const preparation = document.querySelector(".preparation ul");
 const information = document.querySelector(".information p");

@@ -25,5 +25,11 @@ routes.get("/recipes/:index", (req, res) => {
 routes.get("/admin/recipes", (req, res) => {
   return res.render("admin/index", { recipes });
 });
+routes.get("/admin/recipes/:index", (req, res) => {
+  const recipeIndex = req.params.index;
+  const recipe = recipes[recipeIndex];
+
+  return res.render("admin/show", { recipe });
+});
 
 module.exports = routes;
