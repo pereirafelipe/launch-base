@@ -23,7 +23,7 @@ routes.get("/recipes/:index", (req, res) => {
 
 // admin routes
 routes.get("/admin/recipes", (req, res) => {
-  return res.render("admin/index");
+  return res.render("admin/index", { recipes });
 });
 
 module.exports = routes;
