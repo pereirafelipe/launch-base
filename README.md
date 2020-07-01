@@ -24,6 +24,7 @@ LaunchBase
 - [Módulo 3](./Modulo3) - Iniciando no Back-end
 - [Foodfy 2.0](./Foodfy2) - Refatorando Foodfy
 - [Módulo 4](./Modulo4) - Controle de Academia
+- [Foodfy 3.0](./Foodfy3) - Admin Foodfy
 - [Gym Manager](./GymManager) - Desafio Controle de Academia
 
 
