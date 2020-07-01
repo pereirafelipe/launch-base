@@ -11,7 +11,7 @@
         <h3>Receita:
           {{recipe.title}}</h3>
         <div class="header__form">
-          <form method="POST" action="/instructors?_method=DELETE">
+          <form method="POST" action="/admin/recipes?_method=DELETE">
             <input type="hidden" name="id" value="{{recipe.id}}">
             <button type="submit" class="form__delete">Deletar</button>
           </form>

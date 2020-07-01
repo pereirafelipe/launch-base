@@ -115,34 +115,6 @@
         "Coloque as porções nos pratos já com o cheiro do alho, e enfeite com algumas ervas."
       ],
       "information": "Não lave o macarrão nem passe óleo ou gordura nele depois de escorrê-lo. Coloque direto na frigideira."
-    },
-    {
-      "id": 6,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "teste",
-      "author": "teste autor",
-      "ingredients": [
-        "teste1"
-      ],
-      "preparation": [
-        ""
-      ],
-      "information": ""
-    },
-    {
-      "id": 7,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "teste",
-      "author": "teste autor",
-      "ingredients": [
-        "teste1",
-        "teste2"
-      ],
-      "preparation": [
-        "teste",
-        "teste2"
-      ],
-      "information": "teste \r\n"
     }
   ]
 }
