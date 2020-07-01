@@ -1,4 +1,7 @@
 const express = require("express");
+const fs = require("fs");
+
+const data = require("./data.json");
 
 const routes = express.Router();
 
@@ -33,6 +36,41 @@ routes.get("/admin/recipes/:index", (req, res) => {
   const recipe = recipes[recipeIndex];
 
   return res.render("admin/show", { recipe });
+});
+routes.post("/admin/recipes", (req, res) => {
+  const keys = Object.keys(req.body);
+  let {
+    image,
+    title,
+    author,
+    ingredients,
+    preparation,
+    information,
+  } = req.body;
+
+  keys.map((key) => {
+    if (req.body[key] === "") {
+      return res.send("Please, fill all fields!");
+    }
+  });
+
+  id = Number(data.recipes.length + 1);
+
+  data.recipes.push({
+    id,
+    image,
+    title,
+    author,
+    ingredients,
+    preparation,
+    information,
+  });
+
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    if (err) return res.send("Write file error!");
+
+    return res.redirect("/admin/recipes");
+  });
 });
 
 module.exports = routes;
