@@ -37,6 +37,15 @@ routes.get("/admin/recipes/:index", (req, res) => {
 
   return res.render("admin/show", { recipe });
 });
+routes.get("/admin/recipes/:index/edit", (req, res) => {
+  const recipeIndex = req.params.index;
+  const tIndex = Number(recipeIndex) - 1;
+  const recipe = data.recipes[tIndex];
+
+  if (!recipe) return res.send("Recipe not found!");
+
+  return res.render("admin/edit", { recipe });
+});
 routes.post("/admin/recipes", (req, res) => {
   const keys = Object.keys(req.body);
   let {
