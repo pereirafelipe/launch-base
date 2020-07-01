@@ -56,6 +56,11 @@ nav a {
   opacity: 0.8;
 }
 
+.link__manager {
+  color: #eeeeee;
+  text-decoration: none;
+}
+
 main {
   width: 60vw;
   margin: auto;
@@ -305,6 +310,9 @@ h2 {
 .header__content {
   width: 60vw;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .admin__title {
