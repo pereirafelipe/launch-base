@@ -29,15 +29,23 @@
         </div>
 
         <div class="form__item">
-          <label for="ingredients">Ingredientes</label>
-          <input type="text" name="ingredients[]" id="ingredients" placeholder="Ex: 300 g de bacon moído">
-          <button class="form__button-add">Adicionar novo ingrediente</button>
+          <div id="form_ingredients">
+            <label>Ingredientes</label>
+            <div class="ingredient">
+              <input type="text" name="ingredients[]" placeholder="Ex: 300 g de bacon moído">
+            </div>
+          </div>
+          <a class="form__button-add" id="add_ingredient">Adicionar novo ingrediente</a>
         </div>
 
         <div class="form__item">
-          <label for="preparation[]">Modo de preparo</label>
-          <input type="text" name="preparation" id="preparation" placeholder="Ex: Retire do forno e despeje o molho de tomate.">
-          <button class="form__button-add">Adicionar novo passo</button>
+          <div id="form_preparation">
+            <label>Modo de preparo</label>
+            <div class="prep">
+              <input type="text" name="preparation[]" placeholder="Ex: Retire do forno e despeje o molho de tomate.">
+            </div>
+          </div>
+          <a class="form__button-add" id="add_preparation">Adicionar novo passo</a>
         </div>
 
         <div class="form__item">
@@ -48,4 +56,44 @@
       </form>
     </section>
   </main>
+
+  <script>
+    function addIngredient() {
+      const ingredients = document.querySelector("#form_ingredients");
+      const fieldContainer = document.querySelectorAll(".ingredient");
+
+      const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+      if (newField.children[0].value == "") 
+        return false;
+      
+      newField
+        .children[0]
+        .value = "";
+      ingredients.appendChild(newField);
+    }
+
+    function addPreparation() {
+      const preparations = document.querySelector("#form_preparation");
+      const fieldContainer = document.querySelectorAll(".prep");
+
+      const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+      if (newField.children[0].value == "") 
+        return false;
+      
+      newField
+        .children[0]
+        .value = "";
+      preparations.appendChild(newField);
+    }
+
+    document
+      .querySelector("#add_ingredient")
+      .addEventListener("click", addIngredient);
+
+    document
+      .querySelector("#add_preparation")
+      .addEventListener("click", addPreparation);
+  </script>
 {% endblock content %}

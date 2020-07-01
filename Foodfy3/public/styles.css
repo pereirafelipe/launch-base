@@ -436,6 +436,16 @@ h2 {
   font-weight: bold;
 }
 
+.ingredient,
+.prep {
+  margin-top: 10px;
+}
+
+.ingredient input,
+.prep input {
+  width: 100%;
+}
+
 .form__item input,
 .form__item textarea {
   height: 48px;
