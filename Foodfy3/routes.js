@@ -9,31 +9,31 @@ const recipes = require("./data");
 
 // user routes
 routes.get("/", (req, res) => {
-  return res.render("user/home", { recipes });
+  return res.render("user/home", { recipes: data.recipes });
 });
 routes.get("/about", (req, res) => {
   return res.render("user/about");
 });
 routes.get("/recipes", (req, res) => {
-  return res.render("user/recipes", { recipes });
+  return res.render("user/recipes", { recipes: data.recipes });
 });
 routes.get("/recipes/:index", (req, res) => {
   const recipeIndex = req.params.index;
-  const recipe = recipes[recipeIndex];
+  const recipe = data.recipes[recipeIndex];
 
   return res.render("user/detail", { recipe });
 });
 
 // admin routes
 routes.get("/admin/recipes", (req, res) => {
-  return res.render("admin/index", { recipes });
+  return res.render("admin/index", { recipes: data.recipes });
 });
 routes.get("/admin/recipes/create", (req, res) => {
   return res.render("admin/create");
 });
 routes.get("/admin/recipes/:index", (req, res) => {
   const recipeIndex = req.params.index;
-  const recipe = recipes[recipeIndex];
+  const recipe = data.recipes[recipeIndex];
 
   return res.render("admin/show", { recipe });
 });
