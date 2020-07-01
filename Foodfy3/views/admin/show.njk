@@ -10,7 +10,13 @@
       <div class="detail__header">
         <h3>Receita:
           {{recipe.title}}</h3>
-        <a href="/admin/recipes/{{recipe.id}}/edit" class="detail__edit">Editar Receita</a>
+        <div class="header__form">
+          <form method="POST" action="/instructors?_method=DELETE">
+            <input type="hidden" name="id" value="{{recipe.id}}">
+            <button type="submit" class="form__delete">Deletar</button>
+          </form>
+          <a href="/admin/recipes/{{recipe.id}}/edit" class="detail__edit">Editar Receita</a>
+        </div>
       </div>
 
       <div class="detail__image">

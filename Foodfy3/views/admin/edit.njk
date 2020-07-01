@@ -7,15 +7,14 @@
 {% block content %}
   <main>
     <section class="detail">
-      <form action="/admin/recipes" method="post">
+      <form action="/admin/recipes?_method=PUT" method="post">
         <div class="form__header">
-          <h3>Criando receita</h3>
-          <div>
-            <a class="form__delete">Deletar</a>
-            <button type="submit" class="form__save">Salvar Receita</button>
-          </div>
+          <h3>Editar receita</h3>
 
+          <button type="submit" class="form__save">Salvar Receita</button>
         </div>
+
+        <input type="hidden" name="id" value="{{recipe.id}}">
 
         <div class="form__item">
           <label for="image">Imagem da receita</label>
