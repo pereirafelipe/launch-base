@@ -384,19 +384,22 @@ h2 {
   background-color: #ffffff3d;
 }
 
-.detail__header {
+.detail__header,
+.form__header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
 }
 
-.detail__header h3 {
+.detail__header h3,
+.form__header h3 {
   font-size: 24px;
   color: #111111;
 }
 
-.detail__edit {
+.detail__edit,
+.form__save {
   padding: 8px 16px;
   background-color: #6558c3;
   border-radius: 4px;
@@ -408,4 +411,54 @@ h2 {
 
 .detail__edit:hover {
   opacity: 0.5;
+}
+
+.form__save {
+  padding: 9px 20px;
+  font-weight: bold;
+}
+
+.form__header {
+  margin-bottom: 30px;
+}
+
+.form__item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.form__item label {
+  font-size: 16px;
+  color: #111111;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form__item input,
+.form__item textarea {
+  height: 48px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form__item textarea {
+  height: 64px;
+  padding: 16px;
+  resize: vertical;
+}
+
+.form__button-add {
+  width: fit-content;
+  margin-top: 15px;
+  background-color: transparent;
+  color: #6558c3;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }

@@ -1,0 +1,51 @@
+{% extends "adminLayout.njk" %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+{% endblock head %}
+
+{% block content %}
+  <main>
+    <section class="detail">
+      <form action="" method="post">
+        <div class="form__header">
+          <h3>Criando receita</h3>
+          <button type="submit" class="form__save">Salvar Receita</button>
+        </div>
+
+        <div class="form__item">
+          <label for="image">Imagem da receita</label>
+          <input type="url" name="image" id="image" placeholder="http://">
+        </div>
+
+        <div class="form__item">
+          <label for="title">Título da receita</label>
+          <input type="text" name="title" id="title" placeholder="Ex: Triplo bacon burger">
+        </div>
+
+        <div class="form__item">
+          <label for="author">Autor</label>
+          <input type="text" name="author" id="author" placeholder="Nome do autor da receita">
+        </div>
+
+        <div class="form__item">
+          <label for="ingredients">Ingredientes</label>
+          <input type="text" name="ingredients[]" id="ingredients" placeholder="Ex: 300 g de bacon moído">
+          <button class="form__button-add">Adicionar novo ingrediente</button>
+        </div>
+
+        <div class="form__item">
+          <label for="preparation[]">Modo de preparo</label>
+          <input type="text" name="preparation" id="preparation" placeholder="Ex: Retire do forno e despeje o molho de tomate.">
+          <button class="form__button-add">Adicionar novo passo</button>
+        </div>
+
+        <div class="form__item">
+          <label for="information">Informações adicionais</label>
+          <textarea name="information" id="information" cols="30" rows="10" placeholder="Ex: Pizza de liquidificador é uma receita deliciosa e super simples de preparar..."></textarea>
+        </div>
+
+      </form>
+    </section>
+  </main>
+{% endblock content %}
