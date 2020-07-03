@@ -25,7 +25,7 @@ LaunchBase
 - [Foodfy 2.0](./Foodfy2) - Refatorando Foodfy
 - [Módulo 4](./Modulo4) - Controle de Academia
 - [Foodfy 3.0](./Foodfy3) - Admin Foodfy
-- [Gym Manager](./GymManager) - Desafio Controle de Academia
+- [Gym Manager 1.0](./GymManager1) - Desafio Controle de Academia
 
 
 ## Divirta-se! Rumo ao próximo nível! 🚀🚀
