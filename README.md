@@ -26,6 +26,7 @@ LaunchBase
 - [Módulo 4](./Modulo4) - Controle de Academia
 - [Foodfy 3.0](./Foodfy3) - Admin Foodfy
 - [Gym Manager 1.0](./GymManager1) - Desafio Controle de Academia
+- [Gym Manager 2.0](./GymManager2) - Desafio Controle de Academia (com banco de dados)
 
 
 ## Divirta-se! Rumo ao próximo nível! 🚀🚀
