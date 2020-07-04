@@ -86,5 +86,7 @@ exports.put = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  return res.send("Delete");
+  Instructor.delete(req.body.id, () => {
+    return res.redirect(`/instructors`);
+  });
 };

@@ -3,10 +3,7 @@ const db = require("../../config/db");
 module.exports = {
   all(callback) {
     db.query(`SELECT * FROM instructors`, (err, results) => {
-      if (err) {
-        console.log(err);
-        return res.send("Database Error");
-      }
+      if (err) throw `Database Error! ${err}`;
 
       callback(results.rows);
     });
@@ -31,10 +28,7 @@ module.exports = {
     const values = [avatar_url, name, birth, gender, services, created_at];
 
     db.query(query, values, (err, results) => {
-      if (err) {
-        console.log(err);
-        return res.send("Database Error");
-      }
+      if (err) throw `Database Error! ${err}`;
 
       callback(results.rows[0]);
     });
@@ -44,10 +38,7 @@ module.exports = {
       `SELECT * FROM instructors WHERE id = $1`,
       [id],
       (err, results) => {
-        if (err) {
-          console.log(err);
-          return res.send("Database Error");
-        }
+        if (err) throw `Database Error! ${err}`;
 
         callback(results.rows[0]);
       }
@@ -69,10 +60,14 @@ module.exports = {
     const values = [avatar_url, name, birth, gender, services, id];
 
     db.query(query, values, (err, results) => {
-      if (err) {
-        console.log(err);
-        return res.send("Database Error");
-      }
+      if (err) throw `Database Error! ${err}`;
+
+      callback();
+    });
+  },
+  delete(id, callback) {
+    db.query(`DELETE FROM instructors WHERE id = $1`, [id], (err, results) => {
+      if (err) throw `Database Error! ${err}`;
 
       callback();
     });
