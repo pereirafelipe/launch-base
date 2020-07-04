@@ -68,6 +68,7 @@ module.exports = {
       blood,
       weight,
       height,
+      id,
     } = data;
 
     const query = `
