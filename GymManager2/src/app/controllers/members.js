@@ -1,5 +1,5 @@
 const Member = require("../models/Member");
-const { handleAge, handleDate } = require("../../lib/utils");
+const { handleDate } = require("../../lib/utils");
 
 exports.index = (req, res) => {
   Member.all((members) => {

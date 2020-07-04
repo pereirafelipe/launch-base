@@ -74,10 +74,13 @@ module.exports = {
       UPDATE members SET
       avatar_url=($1),
       name=($2),
-      birth=($3),
-      gender=($4),
-      services=($5)
-      WHERE id = $6
+      email=($3),
+      birth=($4),
+      gender=($5),
+      blood=($6),
+      weight=($7),
+      height=($8)
+      WHERE id = $9
     `;
 
     const values = [
