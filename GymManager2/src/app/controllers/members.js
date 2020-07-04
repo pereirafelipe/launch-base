@@ -1,5 +1,6 @@
 const Member = require("../models/Member");
 const { handleDate } = require("../../lib/utils");
+const { instructorSelectOptions } = require("../models/Member");
 
 exports.index = (req, res) => {
   Member.all((members) => {
@@ -8,7 +9,9 @@ exports.index = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  return res.render("members/create");
+  Member.instructorSelectOptions((options) => {
+    return res.render("members/create", { instructorOptions: options });
+  });
 };
 
 exports.post = (req, res) => {
@@ -57,7 +60,9 @@ exports.update = (req, res) => {
       birth: date,
     };
 
-    return res.render("members/edit", { member });
+    Member.instructorSelectOptions((options) => {
+      return res.render("members/edit", { member, instructorOptions: options });
+    });
   });
 };
 
