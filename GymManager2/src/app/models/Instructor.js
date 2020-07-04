@@ -53,4 +53,28 @@ module.exports = {
       }
     );
   },
+  update(data, callback) {
+    let { avatar_url, name, birth, gender, services, id } = data;
+
+    const query = `
+      UPDATE instructors SET
+      avatar_url=($1),
+      name=($2),
+      birth=($3),
+      gender=($4),
+      services=($5)
+      WHERE id = $6
+    `;
+
+    const values = [avatar_url, name, birth, gender, services, id];
+
+    db.query(query, values, (err, results) => {
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
+      }
+
+      callback();
+    });
+  },
 };
