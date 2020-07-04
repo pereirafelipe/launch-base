@@ -2,7 +2,15 @@
 
 {% block content %}
   <div class="container table-container">
-    <a href="/instructors/create" class="button">Novo</a>
+    <div class="header__table">
+      <a href="/instructors/create" class="button">Novo</a>
+
+      <form action="/instructors" method="get">
+        <input type="text" name="filter" placeholder="Digite o nome ou atendimento">
+        <button type="submit" class="button__filter">Filtrar</button>
+      </form>
+    </div>
+
     <table width="100%">
       <thead>
         <tr>
