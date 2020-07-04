@@ -1,11 +1,23 @@
+const instructor = require("../models/instructor");
 const { handleAge, handleDate } = require("../../lib/utils");
 
 exports.index = (req, res) => {
-  return res.send("Index");
+  instructor.all((instructors) => {
+    const foundInstructors = instructors.map((instructor) => {
+      const formatServices = instructor.services.split(",");
+      const foundInstructor = {
+        ...instructor,
+        services: formatServices,
+      };
+      return foundInstructor;
+    });
+
+    return res.render("instructors/index", { instructors: foundInstructors });
+  });
 };
 
 exports.create = (req, res) => {
-  return res.send("Create");
+  return res.render("instructors/create");
 };
 
 exports.post = (req, res) => {
@@ -15,7 +27,9 @@ exports.post = (req, res) => {
     if (req.body[key] == "") return res.send("Please, fill all fields!");
   });
 
-  return res.send("Post");
+  instructor.create(req.body, (instructor) => {
+    return res.redirect(`instructors/${instructor.id}`);
+  });
 };
 
 exports.show = (req, res) => {
