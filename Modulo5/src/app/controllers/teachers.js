@@ -1,144 +1,93 @@
 const fs = require("fs");
 const crypto = require("crypto");
 
+const Teacher = require("../models/Teacher");
+
 const data = require("../../../data.json");
 const { handleAge, handleDate, handleGraduation } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    const teachers = data.teachers.map((teacher) => {
-      const formatServices = teacher.services.split(",");
-      const foundTeacher = {
-        ...teacher,
-        services: formatServices,
-      };
-      return foundTeacher;
-    });
+    Teacher.all((teachers) => {
+      const foundTeachers = teachers.map((teacher) => {
+        const formatServices = teacher.subjects_taught.split(",");
+        const foundTeacher = {
+          ...teacher,
+          subjects_taught: formatServices,
+        };
+        return foundTeacher;
+      });
 
-    return res.render("teachers/index", { teachers });
+      return res.render("teachers/index", { teachers: foundTeachers });
+    });
   },
   create(req, res) {
     return res.render("teachers/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
-    let { avatar_url, name, birth, schooling, type_class, services } = req.body;
 
     keys.map((key) => {
-      if (req.body[key] === "") {
-        return res.send("Please, fill all fields!");
-      }
+      if (req.body[key] == "") return res.send("Please, fill all fields!");
     });
 
-    birth = Date.parse(req.body.birth);
-    const created_at = Date.now();
-    const id = crypto.randomBytes(6).toString("hex");
-
-    data.teachers.push({
-      id,
-      avatar_url,
-      name,
-      birth,
-      schooling,
-      type_class,
-      services,
-      created_at,
-    });
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect("/teachers");
+    Teacher.create(req.body, (teacher) => {
+      return res.redirect(`teachers/${teacher.id}`);
     });
   },
   show(req, res) {
-    const { id } = req.params;
+    Teacher.find(req.params.id, (foundTeacher) => {
+      if (!foundTeacher) return res.send("Teacher not found!");
 
-    const foundTeacher = data.teachers.find((teacher) => {
-      return teacher.id == id;
+      const date = new Intl.DateTimeFormat("pt-BR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(foundTeacher.created_at);
+
+      const teacher = {
+        ...foundTeacher,
+        education_level: handleGraduation(foundTeacher.education_level),
+        age: handleAge(foundTeacher.birth_date),
+        subjects_taught: foundTeacher.subjects_taught.split(","),
+        created_at: handleDate(date),
+      };
+
+      return res.render("teachers/show", { teacher });
     });
-
-    if (!foundTeacher) return res.send("Teacher not found!");
-
-    const date = new Intl.DateTimeFormat("pt-BR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    }).format(foundTeacher.created_at);
-
-    const teacher = {
-      ...foundTeacher,
-      schooling: handleGraduation(foundTeacher.schooling),
-      age: handleAge(foundTeacher.birth),
-      services: foundTeacher.services.split(","),
-      created_at: handleDate(date),
-    };
-
-    return res.render("teachers/show", { teacher });
   },
   update(req, res) {
-    const { id } = req.params;
+    Teacher.find(req.params.id, (foundTeacher) => {
+      if (!foundTeacher) return res.send("Teacher not found!");
 
-    const foundTeacher = data.teachers.find((teacher) => {
-      return teacher.id == id;
+      const date = new Intl.DateTimeFormat("pt-BR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(foundTeacher.birth_date);
+
+      const teacher = {
+        ...foundTeacher,
+        birth_date: date,
+        subjects_taught: foundTeacher.subjects_taught.split(","),
+      };
+
+      return res.render("teachers/edit", { teacher });
     });
-
-    if (!foundTeacher) return res.send("Instructor not found!");
-
-    const date = new Intl.DateTimeFormat("pt-BR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      timeZone: "UTC",
-    }).format(foundTeacher.birth);
-
-    const teacher = {
-      ...foundTeacher,
-      birth: date,
-    };
-
-    return res.render("teachers/edit", { teacher });
   },
   put(req, res) {
-    const { id } = req.body;
-    let index = 0;
+    const keys = Object.keys(req.body);
 
-    const foundTeacher = data.teachers.find((teacher, foundIndex) => {
-      if (teacher.id == id) {
-        index = foundIndex;
-        return true;
-      }
+    keys.map((key) => {
+      if (req.body[key] == "") return res.send("Please, fill all fields!");
     });
 
-    if (!foundTeacher) return res.send("Teacher not found!");
-
-    birth = Date.parse(req.body.birth);
-
-    const teacher = {
-      ...foundTeacher,
-      ...req.body,
-      birth,
-    };
-    data.teachers[index] = teacher;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect(`/teachers/${id}`);
+    Teacher.update(req.body, () => {
+      return res.redirect(`teachers/${req.body.id}`);
     });
   },
   delete(req, res) {
-    const { id } = req.body;
-
-    const filteredTeacher = data.teachers.filter((teacher) => {
-      return teacher.id != id;
-    });
-
-    data.teachers = filteredTeacher;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
+    Teacher.delete(req.body.id, () => {
       return res.redirect(`/teachers`);
     });
   },

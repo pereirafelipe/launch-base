@@ -20,14 +20,14 @@
         <div class="item">
           <div>Grau de escolaridade</div>
           <div>
-            {{teacher.schooling}}
+            {{teacher.education_level}}
           </div>
         </div>
 
         <div class="item">
           <div>Tipo de aula</div>
           <div>
-            {% if teacher.type_class === "D" %}
+            {% if teacher.class_type === "D" %}
               À Distância
             {% else %}
               Presencial
@@ -38,7 +38,7 @@
         <div class="item">
           <div>Acompanhamento</div>
           <div>
-            {% for service in teacher.services %}
+            {% for service in teacher.subjects_taught %}
               <span>{{service}}</span>
             {% endfor %}
           </div>
