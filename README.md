@@ -23,9 +23,10 @@ LaunchBase
 - [Foodfy 1.0 ](./Foodfy1) - Construindo o Foodfy
 - [Módulo 3](./Modulo3) - Iniciando no Back-end
 - [Foodfy 2.0](./Foodfy2) - Refatorando Foodfy
-- [Módulo 4](./Modulo4) - Desafio Controle de Aulas Particulares
+- [Módulo 4](./Modulo4) - Controle de Academia
 - [Gym Manager 1.0](./GymManager1) - Desafio Controle de Academia
 - [Foodfy 3.0](./Foodfy3) - Admin Foodfy
+- [Módulo 5](./Modulo5) - Persistindo dados da aplicação
 - [Gym Manager 2.0](./GymManager2) - Desafio Controle de Academia (com banco de dados)
 
 
