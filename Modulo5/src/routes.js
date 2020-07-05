@@ -1,7 +1,7 @@
 const express = require("express");
 
 const teachers = require("./app/controllers/teachers");
-const students = require("./controllers/students");
+const students = require("./app/controllers/students");
 
 const routes = express.Router();
 
@@ -18,13 +18,11 @@ routes.put("/teachers", teachers.put);
 routes.delete("/teachers", teachers.delete);
 
 routes.get("/students", students.index);
-routes.get("/students/create", (req, res) => {
-  return res.render("students/create");
-});
-routes.post("/students", students.create);
+routes.get("/students/create", students.create);
+routes.post("/students", students.post);
 routes.get("/students/:id", students.show);
-routes.get("/students/:id/edit", students.showEdit);
+routes.get("/students/:id/edit", students.update);
 routes.put("/students", students.update);
-routes.delete("/students", students.deleteUser);
+routes.delete("/students", students.delete);
 
 module.exports = routes;
