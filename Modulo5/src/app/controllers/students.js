@@ -1,78 +1,72 @@
-const fs = require("fs");
-const crypto = require("crypto");
+const Student = require("../models/Student");
 
-const data = require("../../../data.json");
 const { handleDate, handleSchollYear } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    const students = data.students.map((student) => {
-      const formatSchoolYear = handleSchollYear(student.schoolYear);
-      const foundStudent = {
-        ...student,
-        schoolYear: formatSchoolYear,
-      };
-      return foundStudent;
-    });
+    Student.all((students) => {
+      const foundStudents = students.map((student) => {
+        const formatSchoolYear = handleSchollYear(student.schoolYear);
+        const foundStudent = {
+          ...student,
+          schoolYear: formatSchoolYear,
+        };
+        return foundStudent;
+      });
 
-    return res.render("students/index", { students });
+      return res.render("students/index", { students: foundStudents });
+    });
   },
   create(req, res) {
     return res.render("students/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
-    let { avatar_url, name, email, birth, schoolYear, workload } = req.body;
 
     keys.map((key) => {
-      if (req.body[key] === "") {
-        return res.send("Please, fill all fields!");
-      }
+      if (req.body[key] === "") return res.send("Please, fill all fields!");
     });
 
-    birth = Date.parse(req.body.birth);
-    const id = crypto.randomBytes(6).toString("hex");
-
-    data.students.push({
-      id,
-      avatar_url,
-      name,
-      email,
-      birth,
-      schoolYear,
-      workload,
-    });
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect("/students");
+    Student.create(req.body, (student) => {
+      return res.redirect(`/students/${student.id}`);
     });
   },
   show(req, res) {
-    const { id } = req.params;
+    Student.find(req.params.id, (foundStudent) => {
+      if (!foundStudent) return res.send("Student not found!");
 
-    const foundStudent = data.students.find((student) => {
-      return student.id == id;
+      const birthDay = new Intl.DateTimeFormat("pt-BR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(foundStudent.birth);
+
+      const student = {
+        ...foundStudent,
+        schoolYear: handleSchollYear(foundStudent.schoolYear),
+        birth: handleDate(birthDay),
+      };
+
+      return res.render("students/show", { student });
     });
-
-    if (!foundStudent) return res.send("Student not found!");
-
-    const birthDay = new Intl.DateTimeFormat("pt-BR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    }).format(foundStudent.birth);
-
-    const student = {
-      ...foundStudent,
-      schoolYear: handleSchollYear(foundStudent.schoolYear),
-      birth: handleDate(birthDay),
-    };
-
-    return res.render("students/show", { student });
   },
   update(req, res) {
+    Student.find(req.params.id, (foundStudent) => {
+      if (!foundStudent) return res.send("Student not found!");
+
+      const date = new Intl.DateTimeFormat("pt-BR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(foundStudent.birth);
+
+      const student = {
+        ...foundStudent,
+        birth: date,
+      };
+
+      return res.render("students/edit", { student });
+    });
     const { id } = req.params;
 
     const foundStudent = data.students.find((student) => {
@@ -96,46 +90,18 @@ module.exports = {
     return res.render("students/edit", { student });
   },
   put(req, res) {
-    const { id } = req.body;
-    let index = 0;
+    const keys = Object.keys(req.body);
 
-    const foundStudent = data.students.find((student, foundIndex) => {
-      if (student.id == id) {
-        index = foundIndex;
-        return true;
-      }
+    keys.map((key) => {
+      if (req.body[key] == "") return res.send("Please, fill all fields!");
     });
 
-    if (!foundStudent) return res.send("Student not found!");
-
-    birth = Date.parse(req.body.birth);
-
-    const student = {
-      ...foundStudent,
-      ...req.body,
-      birth,
-    };
-
-    data.students[index] = student;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect(`/students/${id}`);
+    Student.update(req.body, () => {
+      return res.redirect(`students/${req.body.id}`);
     });
   },
   delete(req, res) {
-    const { id } = req.body;
-
-    const filteredStudent = data.students.filter((student) => {
-      return student.id != id;
-    });
-
-    data.students = filteredStudent;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
+    Teacher.delete(req.body.id, () => {
       return res.redirect(`/students`);
     });
   },

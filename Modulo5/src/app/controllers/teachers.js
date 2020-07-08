@@ -1,9 +1,5 @@
-const fs = require("fs");
-const crypto = require("crypto");
-
 const Teacher = require("../models/Teacher");
 
-const data = require("../../../data.json");
 const { handleAge, handleDate, handleGraduation } = require("../../lib/utils");
 
 module.exports = {
