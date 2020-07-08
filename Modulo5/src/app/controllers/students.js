@@ -6,10 +6,10 @@ module.exports = {
   index(req, res) {
     Student.all((students) => {
       const foundStudents = students.map((student) => {
-        const formatSchoolYear = handleSchollYear(student.schoolYear);
+        const formatSchoolYear = handleSchollYear(student.school_year);
         const foundStudent = {
           ...student,
-          schoolYear: formatSchoolYear,
+          school_year: formatSchoolYear,
         };
         return foundStudent;
       });
@@ -43,7 +43,7 @@ module.exports = {
 
       const student = {
         ...foundStudent,
-        schoolYear: handleSchollYear(foundStudent.schoolYear),
+        school_year: handleSchollYear(foundStudent.school_year),
         birth: handleDate(birthDay),
       };
 
@@ -67,27 +67,6 @@ module.exports = {
 
       return res.render("students/edit", { student });
     });
-    const { id } = req.params;
-
-    const foundStudent = data.students.find((student) => {
-      return student.id == id;
-    });
-
-    if (!foundStudent) return res.send("Instructor not found!");
-
-    const date = new Intl.DateTimeFormat("pt-BR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      timeZone: "UTC",
-    }).format(foundStudent.birth);
-
-    const student = {
-      ...foundStudent,
-      birth: date,
-    };
-
-    return res.render("students/edit", { student });
   },
   put(req, res) {
     const keys = Object.keys(req.body);
@@ -101,7 +80,7 @@ module.exports = {
     });
   },
   delete(req, res) {
-    Teacher.delete(req.body.id, () => {
+    Student.delete(req.body.id, () => {
       return res.redirect(`/students`);
     });
   },

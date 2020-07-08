@@ -29,22 +29,22 @@
 <div class="item">
   <div>Ano escolar</div>
   <div>
-    <select name="schoolYear">
-      <option value="5EF">5º ano do ensino fundamental
+    <select name="school_year">
+      <option {% if student.school_year == "5EF" %} selected="selected" {% endif %} value="5EF">5º ano do ensino fundamental
       </option>
-      <option value="6EF">6º ano do ensino fundamental
+      <option {% if student.school_year == "6EF" %} selected="selected" {% endif %} value="6EF">6º ano do ensino fundamental
       </option>
-      <option value="7EF">7º ano do ensino fundamental
+      <option {% if student.school_year == "7EF" %} selected="selected" {% endif %} value="7EF">7º ano do ensino fundamental
       </option>
-      <option value="8EF">8º ano do ensino fundamental
+      <option {% if student.school_year == "8EF" %} selected="selected" {% endif %} value="8EF">8º ano do ensino fundamental
       </option>
-      <option value="9EF">9º ano do ensino fundamental
+      <option {% if student.school_year == "9EF" %} selected="selected" {% endif %} value="9EF">9º ano do ensino fundamental
       </option>
-      <option value="1EM">1º ano do ensino médio
+      <option {% if student.school_year == "1EM" %} selected="selected" {% endif %} value="1EM">1º ano do ensino médio
       </option>
-      <option value="2EM">2º ano do ensino médio
+      <option {% if student.school_year == "2EM" %} selected="selected" {% endif %} value="2EM">2º ano do ensino médio
       </option>
-      <option value="3EM">3º ano do ensino médio
+      <option {% if student.school_year == "3EM" %} selected="selected" {% endif %} value="3EM">3º ano do ensino médio
       </option>
     </select>
   </div>

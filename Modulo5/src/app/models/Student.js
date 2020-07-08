@@ -13,21 +13,21 @@ module.exports = {
     });
   },
   create(data, callback) {
-    let { avatar_url, name, email, birth, schoolYear, workload } = data;
+    let { avatar_url, name, email, birth, school_year, workload } = data;
 
     const query = `
-    INSERT INTO teachers (
+    INSERT INTO students (
       avatar_url,
       name,
       email,
       birth,
       school_year,
-      workload,
+      workload
     ) VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id
   `;
 
-    const values = [avatar_url, name, birth, email, schoolYear, workload];
+    const values = [avatar_url, name, email, birth, school_year, workload];
 
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error! ${err}`;
@@ -43,10 +43,10 @@ module.exports = {
     });
   },
   update(data, callback) {
-    let { avatar_url, name, email, birth, schoolYear, workload, id } = data;
+    let { avatar_url, name, email, birth, school_year, workload, id } = data;
 
     const query = `
-      UPDATE teachers SET
+      UPDATE students SET
       avatar_url=($1),
       name=($2),
       email=($3),
@@ -56,7 +56,7 @@ module.exports = {
       WHERE id = $7
     `;
 
-    const values = [avatar_url, name, email, birth, schoolYear, workload, id];
+    const values = [avatar_url, name, email, birth, school_year, workload, id];
 
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error! ${err}`;
