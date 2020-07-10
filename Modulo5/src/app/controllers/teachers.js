@@ -4,18 +4,38 @@ const { handleAge, handleDate, handleGraduation } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    Teacher.all((teachers) => {
-      const foundTeachers = teachers.map((teacher) => {
-        const formatServices = teacher.subjects_taught.split(",");
-        const foundTeacher = {
-          ...teacher,
-          subjects_taught: formatServices,
-        };
-        return foundTeacher;
-      });
+    const { filter } = req.query;
 
-      return res.render("teachers/index", { teachers: foundTeachers });
-    });
+    if (filter) {
+      Teacher.findBy(filter, (teachers) => {
+        const foundTeachers = teachers.map((teacher) => {
+          const formatServices = teacher.subjects_taught.split(",");
+          const foundTeacher = {
+            ...teacher,
+            subjects_taught: formatServices,
+          };
+          return foundTeacher;
+        });
+
+        return res.render("teachers/index", {
+          teachers: foundTeachers,
+          filter,
+        });
+      });
+    } else {
+      Teacher.all((teachers) => {
+        const foundTeachers = teachers.map((teacher) => {
+          const formatServices = teacher.subjects_taught.split(",");
+          const foundTeacher = {
+            ...teacher,
+            subjects_taught: formatServices,
+          };
+          return foundTeacher;
+        });
+
+        return res.render("teachers/index", { teachers: foundTeachers });
+      });
+    }
   },
   create(req, res) {
     return res.render("teachers/create");

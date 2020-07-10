@@ -232,3 +232,32 @@ tbody tr td .button {
 tbody tr td:last-child {
   text-align: center;
 }
+
+.header__table {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__table a {
+  margin: 0;
+}
+
+.header__table form {
+  width: 55%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.header__table form input {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #777;
+  font-size: 14px;
+  padding: 8px 0 8px 16px;
+  border-radius: 4px;
+}
+
+.header__table .button__filter {
+  margin: 0;
+}
