@@ -16,7 +16,7 @@ module.exports = {
     let { avatar_url, name, birth, schooling, type_class, services } = data;
 
     const query = `
-    INSERT INTO students (
+    INSERT INTO teachers (
       avatar_url,
       name,
       birth_date,

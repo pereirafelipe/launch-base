@@ -13,7 +13,15 @@ module.exports = {
     });
   },
   create(data, callback) {
-    let { avatar_url, name, email, birth, school_year, workload } = data;
+    let {
+      avatar_url,
+      name,
+      email,
+      birth,
+      school_year,
+      workload,
+      teacher,
+    } = data;
 
     const query = `
     INSERT INTO students (
@@ -22,12 +30,21 @@ module.exports = {
       email,
       birth,
       school_year,
-      workload
-    ) VALUES ($1, $2, $3, $4, $5, $6)
+      workload,
+      teacher_id
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7)
     RETURNING id
   `;
 
-    const values = [avatar_url, name, email, birth, school_year, workload];
+    const values = [
+      avatar_url,
+      name,
+      email,
+      birth,
+      school_year,
+      workload,
+      teacher,
+    ];
 
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error! ${err}`;
@@ -36,14 +53,29 @@ module.exports = {
     });
   },
   find(id, callback) {
-    db.query(`SELECT * FROM students WHERE id = $1`, [id], (err, results) => {
-      if (err) throw `Database Error! ${err}`;
+    db.query(
+      `SELECT students.*, teachers.name AS teacher_name FROM students 
+      LEFT JOIN teachers ON (students.teacher_id = teachers.id) 
+      WHERE students.id = $1`,
+      [id],
+      (err, results) => {
+        if (err) throw `Database Error! ${err}`;
 
-      callback(results.rows[0]);
-    });
+        callback(results.rows[0]);
+      }
+    );
   },
   update(data, callback) {
-    let { avatar_url, name, email, birth, school_year, workload, id } = data;
+    let {
+      avatar_url,
+      name,
+      email,
+      birth,
+      school_year,
+      workload,
+      teacher,
+      id,
+    } = data;
 
     const query = `
       UPDATE students SET
@@ -53,10 +85,20 @@ module.exports = {
       birth=($4),
       school_year=($5),
       workload=($6),
-      WHERE id = $7
+      teacher_id=($7)
+      WHERE id = $8
     `;
 
-    const values = [avatar_url, name, email, birth, school_year, workload, id];
+    const values = [
+      avatar_url,
+      name,
+      email,
+      birth,
+      school_year,
+      workload,
+      teacher,
+      id,
+    ];
 
     db.query(query, values, (err, results) => {
       if (err) throw `Database Error! ${err}`;
@@ -69,6 +111,13 @@ module.exports = {
       if (err) throw `Database Error! ${err}`;
 
       callback();
+    });
+  },
+  teachersSelectOptions(callback) {
+    db.query(`SELECT name, id FROM teachers`, (err, results) => {
+      if (err) throw `Database Error! ${err}`;
+
+      callback(results.rows);
     });
   },
 };
