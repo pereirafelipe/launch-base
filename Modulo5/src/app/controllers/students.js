@@ -53,7 +53,8 @@ module.exports = {
     });
   },
   update(req, res) {
-    Student.find(req.params.id, (foundStudent) => {
+    const { id } = req.params;
+    Student.find(id, (foundStudent) => {
       if (!foundStudent) return res.send("Student not found!");
 
       const date = new Intl.DateTimeFormat("pt-BR", {

@@ -22,7 +22,7 @@ routes.get("/students/create", students.create);
 routes.post("/students", students.post);
 routes.get("/students/:id", students.show);
 routes.get("/students/:id/edit", students.update);
-routes.put("/students", students.update);
+routes.put("/students", students.put);
 routes.delete("/students", students.delete);
 
 module.exports = routes;
