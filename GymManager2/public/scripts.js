@@ -38,24 +38,31 @@ function handlePaginate(selectedPage, totalPages) {
 }
 
 const pagination = document.querySelector(".pagination");
-const page = +pagination.dataset.page;
-const total = +pagination.dataset.total;
-const filter = +pagination.dataset.filter;
 
-const pages = handlePaginate(page, total);
+function createPagination(pagination) {
+  const page = +pagination.dataset.page;
+  const total = +pagination.dataset.total;
+  const filter = pagination.dataset.filter;
 
-let elements = "";
+  const pages = handlePaginate(page, total);
 
-for (let page of pages) {
-  if (String(page).includes("...")) {
-    elements += `<span>${page}</span>`;
-  } else {
-    if (filter) {
-      elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`;
+  let elements = "";
+
+  for (let page of pages) {
+    if (String(page).includes("...")) {
+      elements += `<span>${page}</span>`;
     } else {
-      elements += `<a href="?page=${page}">${page}</a>`;
+      if (filter) {
+        elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`;
+      } else {
+        elements += `<a href="?page=${page}">${page}</a>`;
+      }
     }
   }
+
+  pagination.innerHTML = elements;
 }
 
-pagination.innerHTML = elements;
+if (pagination) {
+  createPagination(pagination);
+}

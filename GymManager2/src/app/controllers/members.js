@@ -1,10 +1,32 @@
 const Member = require("../models/Member");
 const { handleDate } = require("../../lib/utils");
-const { instructorSelectOptions } = require("../models/Member");
 
 exports.index = (req, res) => {
-  Member.all((members) => {
-    return res.render("members/index", { members });
+  let { filter, page, limit } = req.query;
+
+  page = page || 1;
+  limit = limit || 3;
+
+  let offset = limit * (page - 1);
+
+  const params = {
+    filter,
+    page,
+    limit,
+    offset,
+  };
+
+  Member.paginate(params, (members) => {
+    const pagination = {
+      total: Math.ceil(members[0].total / limit),
+      page,
+    };
+
+    return res.render("members/index", {
+      members,
+      pagination,
+      filter,
+    });
   });
 };
 
