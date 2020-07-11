@@ -26,8 +26,14 @@ exports.index = (req, res) => {
       return foundInstructor;
     });
 
+    const pagination = {
+      total: Math.ceil(instructors[0].total / limit),
+      page,
+    };
+
     return res.render("instructors/index", {
       instructors: foundInstructors,
+      pagination,
       filter,
     });
   });

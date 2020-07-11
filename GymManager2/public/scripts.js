@@ -7,28 +7,50 @@ for (const item of menuItems) {
   }
 }
 
-let totalPages = 20,
-  selectedPage = 10,
-  oldPage,
-  pages = [];
+function handlePaginate(selectedPage, totalPages) {
+  let oldPage,
+    pages = [];
 
-for (let currentPage = 0; currentPage <= totalPages; currentPage++) {
-  const firtAndLastPage = currentPage == 1 || currentPage == totalPages;
-  const pagesAfterSelectedPage = currentPage <= selectedPage + 2;
-  const pagesBeforeSelectedPage = currentPage >= selectedPage - 2;
+  for (let currentPage = 0; currentPage <= totalPages; currentPage++) {
+    const firtAndLastPage = currentPage == 1 || currentPage == totalPages;
+    const pagesAfterSelectedPage = currentPage <= selectedPage + 2;
+    const pagesBeforeSelectedPage = currentPage >= selectedPage - 2;
 
-  if (firtAndLastPage || (pagesBeforeSelectedPage && pagesAfterSelectedPage)) {
-    if (oldPage && currentPage - oldPage > 2) {
-      pages.push("...");
+    if (
+      firtAndLastPage ||
+      (pagesBeforeSelectedPage && pagesAfterSelectedPage)
+    ) {
+      if (oldPage && currentPage - oldPage > 2) {
+        pages.push("...");
+      }
+
+      if (oldPage && currentPage - oldPage == 2) {
+        pages.push(oldPage + 1);
+      }
+
+      if (currentPage != 0) pages.push(currentPage);
+
+      oldPage = currentPage;
     }
+  }
 
-    if (oldPage && currentPage - oldPage == 2) {
-      pages.push(oldPage + 1);
-    }
-    pages.push(currentPage);
+  return pages;
+}
 
-    oldPage = currentPage;
+const pagination = document.querySelector(".pagination");
+const page = +pagination.dataset.page;
+const total = +pagination.dataset.total;
+
+const pages = handlePaginate(page, total);
+
+let elements = "";
+
+for (let page of pages) {
+  if (String(page).includes("...")) {
+    elements += `<span>${page}</span>`;
+  } else {
+    elements += `<a href="?page=${page}">${page}</a>`;
   }
 }
 
-console.log(pages);
+pagination.innerHTML = elements;

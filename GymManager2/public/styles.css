@@ -173,8 +173,9 @@ a.button {
 }
 
 .table-container {
-  display: block;
-  padding: 32px 24px;
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
+  padding: 24px;
 }
 
 .table-container table {
@@ -184,6 +185,10 @@ a.button {
 
 .table-container thead tr th {
   text-align: left;
+}
+
+table {
+  margin: 16px 0;
 }
 
 td,
@@ -228,7 +233,8 @@ tbody tr td:last-child {
   text-align: center;
 }
 
-.header__table {
+.header__table,
+.pagination {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -255,4 +261,24 @@ tbody tr td:last-child {
 
 .header__table .button__filter {
   margin: 0;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination a {
+  box-sizing: border-box;
+  color: #7159c1;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+  border-bottom: 1px solid #7159c1;
+}
+
+.pagination span {
+  color: #7159c1;
 }
