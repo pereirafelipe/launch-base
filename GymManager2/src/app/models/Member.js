@@ -56,7 +56,7 @@ module.exports = {
   },
   find(id, callback) {
     db.query(
-      `SELECT *, instructors.name AS instructor_name FROM members 
+      `SELECT members.*, instructors.name AS instructor_name FROM members 
       LEFT JOIN instructors ON (members.instructor_id = instructors.id) 
       WHERE members.id = $1`,
       [id],

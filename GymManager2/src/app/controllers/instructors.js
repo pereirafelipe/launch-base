@@ -2,38 +2,35 @@ const Instructor = require("../models/Instructor");
 const { handleAge, handleDate } = require("../../lib/utils");
 
 exports.index = (req, res) => {
-  const { filter } = req.query;
+  let { filter, page, limit } = req.query;
 
-  if (filter) {
-    Instructor.findBy(filter, (instructors) => {
-      const foundInstructors = instructors.map((instructor) => {
-        const formatServices = instructor.services.split(",");
-        const foundInstructor = {
-          ...instructor,
-          services: formatServices,
-        };
-        return foundInstructor;
-      });
+  page = page || 1;
+  limit = limit || 3;
 
-      return res.render("instructors/index", {
-        instructors: foundInstructors,
-        filter,
-      });
+  let offset = limit * (page - 1);
+
+  const params = {
+    filter,
+    page,
+    limit,
+    offset,
+  };
+
+  Instructor.paginate(params, (instructors) => {
+    const foundInstructors = instructors.map((instructor) => {
+      const formatServices = instructor.services.split(",");
+      const foundInstructor = {
+        ...instructor,
+        services: formatServices,
+      };
+      return foundInstructor;
     });
-  } else {
-    Instructor.all((instructors) => {
-      const foundInstructors = instructors.map((instructor) => {
-        const formatServices = instructor.services.split(",");
-        const foundInstructor = {
-          ...instructor,
-          services: formatServices,
-        };
-        return foundInstructor;
-      });
 
-      return res.render("instructors/index", { instructors: foundInstructors });
+    return res.render("instructors/index", {
+      instructors: foundInstructors,
+      filter,
     });
-  }
+  });
 };
 
 exports.create = (req, res) => {
