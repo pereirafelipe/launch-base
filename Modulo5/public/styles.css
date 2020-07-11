@@ -177,8 +177,9 @@ a.button {
 }
 
 .table-container {
-  display: block;
-  padding: 32px 24px;
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
+  padding: 24px;
 }
 
 .table-container table {
@@ -233,7 +234,8 @@ tbody tr td:last-child {
   text-align: center;
 }
 
-.header__table {
+.header__table,
+.pagination {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -260,4 +262,24 @@ tbody tr td:last-child {
 
 .header__table .button__filter {
   margin: 0;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination a {
+  box-sizing: border-box;
+  color: #46e0bf;
+  text-decoration: none;
+  margin-right: 8px;
+  transition: filter 0.2s ease-in-out;
+}
+
+.pagination a:hover {
+  filter: brightness(0.5);
+}
+
+.pagination span {
+  color: #46e0bf;
 }

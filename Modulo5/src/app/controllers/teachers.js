@@ -22,8 +22,8 @@ module.exports = {
       const foundTeachers = teachers.map((teacher) => {
         const formatServices = teacher.subjects_taught.split(",");
         const foundTeacher = {
-          ...instructor,
-          services: formatServices,
+          ...teacher,
+          subjects_taught: formatServices,
         };
         return foundTeacher;
       });
