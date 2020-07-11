@@ -4,38 +4,41 @@ const { handleAge, handleDate, handleGraduation } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    const { filter } = req.query;
+    let { filter, page, limit } = req.query;
 
-    if (filter) {
-      Teacher.findBy(filter, (teachers) => {
-        const foundTeachers = teachers.map((teacher) => {
-          const formatServices = teacher.subjects_taught.split(",");
-          const foundTeacher = {
-            ...teacher,
-            subjects_taught: formatServices,
-          };
-          return foundTeacher;
-        });
+    page = page || 1;
+    limit = limit || 3;
 
-        return res.render("teachers/index", {
-          teachers: foundTeachers,
-          filter,
-        });
+    let offset = limit * (page - 1);
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+    };
+
+    Teacher.paginate(params, (teachers) => {
+      const foundTeachers = teachers.map((teacher) => {
+        const formatServices = teacher.subjects_taught.split(",");
+        const foundTeacher = {
+          ...instructor,
+          services: formatServices,
+        };
+        return foundTeacher;
       });
-    } else {
-      Teacher.all((teachers) => {
-        const foundTeachers = teachers.map((teacher) => {
-          const formatServices = teacher.subjects_taught.split(",");
-          const foundTeacher = {
-            ...teacher,
-            subjects_taught: formatServices,
-          };
-          return foundTeacher;
-        });
 
-        return res.render("teachers/index", { teachers: foundTeachers });
+      const pagination = {
+        total: Math.ceil(teachers[0].total / limit),
+        page,
+      };
+
+      return res.render("teachers/index", {
+        teachers: foundTeachers,
+        pagination,
+        filter,
       });
-    }
+    });
   },
   create(req, res) {
     return res.render("teachers/create");
