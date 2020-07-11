@@ -61,8 +61,6 @@ module.exports = {
       (err, results) => {
         if (err) throw `Database Error! ${err}`;
 
-        console.log(id);
-
         callback(results.rows[0]);
       }
     );

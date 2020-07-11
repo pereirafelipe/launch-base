@@ -191,6 +191,10 @@ a.button {
   text-align: left;
 }
 
+table {
+  margin: 16px 0;
+}
+
 td,
 th {
   padding: 16px 0;
@@ -273,7 +277,7 @@ tbody tr td:last-child {
   color: #46e0bf;
   text-decoration: none;
   margin-right: 8px;
-  transition: filter 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .pagination a:hover {
