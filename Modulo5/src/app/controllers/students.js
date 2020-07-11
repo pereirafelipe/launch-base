@@ -4,7 +4,21 @@ const { handleDate, handleSchollYear } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    Student.all((students) => {
+    let { filter, page, limit } = req.query;
+
+    page = page || 1;
+    limit = limit || 3;
+
+    let offset = limit * (page - 1);
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+    };
+
+    Student.paginate(params, (students) => {
       const foundStudents = students.map((student) => {
         const formatSchoolYear = handleSchollYear(student.school_year);
         const foundStudent = {
@@ -14,7 +28,16 @@ module.exports = {
         return foundStudent;
       });
 
-      return res.render("students/index", { students: foundStudents });
+      const pagination = {
+        total: Math.ceil(students[0].total / limit),
+        page,
+      };
+
+      return res.render("students/index", {
+        students: foundStudents,
+        pagination,
+        filter,
+      });
     });
   },
   create(req, res) {
