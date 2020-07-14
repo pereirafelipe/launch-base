@@ -33,7 +33,6 @@ header img {
 nav {
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 
 nav a {
@@ -41,6 +40,30 @@ nav a {
   color: #111;
   font-size: 16px;
   text-decoration: none;
+}
+
+header form {
+  display: flex;
+  justify-self: flex-end;
+}
+
+header form input {
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 14px;
+  color: #999999;
+}
+
+header form button {
+  background-color: #6558c3;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
 }
 
 .link__admin a {
