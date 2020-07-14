@@ -87,6 +87,7 @@ header form button {
 main {
   width: 60vw;
   margin: auto;
+  min-height: calc(100vh - 148px);
 }
 
 footer {
@@ -513,4 +514,38 @@ h2 {
 
 .header__form {
   display: flex;
+}
+
+.chefs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 16px;
+  gap: 32px;
+}
+
+.chef {
+  display: flex;
+  align-items: center;
+}
+
+.chef__avatar {
+  width: 64px;
+  height: 64px;
+  background-color: #777;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.chef__name {
+  font-size: 18px;
+  color: #111111;
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.chef__recipes {
+  font-size: 14px;
+  color: #666666;
+  font-weight: normal;
 }

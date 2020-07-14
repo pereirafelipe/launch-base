@@ -23,6 +23,12 @@ routes.get("/recipes/:index", (req, res) => {
 
   return res.render("user/detail", { recipe });
 });
+routes.get("/chefs", (req, res) => {
+  return res.render("user/chefs");
+});
+routes.get("/results", (req, res) => {
+  return res.render("user/results");
+});
 
 // admin routes
 routes.get("/admin/recipes", (req, res) => {

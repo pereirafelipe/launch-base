@@ -1,5 +1,12 @@
 {% extends "layout.njk" %}
 
+{% block search %}
+  <form action="" method="get">
+    <input type="text" name="filter" placeholder="Buscar uma receita">
+    <button>Buscar</button>
+  </form>
+{% endblock search %}
+
 {% block content %}
   <main>
     <section class="presentation">
