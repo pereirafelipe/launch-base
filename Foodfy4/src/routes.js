@@ -32,16 +32,16 @@ routes.get("/results", (req, res) => {
 
 // admin routes
 routes.get("/admin/recipes", (req, res) => {
-  return res.render("admin/index", { recipes: data.recipes });
+  return res.render("admin/recipes/index", { recipes: data.recipes });
 });
 routes.get("/admin/recipes/create", (req, res) => {
-  return res.render("admin/create");
+  return res.render("admin/recipes/create");
 });
 routes.get("/admin/recipes/:index", (req, res) => {
   const recipeIndex = req.params.index;
   const recipe = data.recipes[recipeIndex];
 
-  return res.render("admin/show", { recipe });
+  return res.render("admin/recipes/show", { recipe });
 });
 routes.get("/admin/recipes/:index/edit", (req, res) => {
   const recipeIndex = req.params.index;
@@ -50,7 +50,7 @@ routes.get("/admin/recipes/:index/edit", (req, res) => {
 
   if (!recipe) return res.send("Recipe not found!");
 
-  return res.render("admin/edit", { recipe });
+  return res.render("admin/recipes/edit", { recipe });
 });
 routes.post("/admin/recipes", (req, res) => {
   const keys = Object.keys(req.body);
