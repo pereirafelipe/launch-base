@@ -343,12 +343,17 @@ h2 {
   margin-bottom: 30px;
 }
 
-.admin__recipes {
+.admin__recipes,
+.admin__chefs {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 50px;
+}
+
+.admin__chefs {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .admin__recipe {
@@ -378,7 +383,8 @@ h2 {
   margin-bottom: 10px;
 }
 
-.recipe__link {
+.recipe__link,
+.chef__link {
   box-sizing: border-box;
   font-weight: bold;
   font-size: 14px;

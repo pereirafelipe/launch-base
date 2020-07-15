@@ -31,6 +31,8 @@ routes.get("/results", (req, res) => {
 });
 
 // admin routes
+
+// recipes
 routes.get("/admin/recipes", (req, res) => {
   return res.render("admin/recipes/index", { recipes: data.recipes });
 });
@@ -128,6 +130,14 @@ routes.delete("/admin/recipes", (req, res) => {
 
     return res.redirect(`/admin/recipes`);
   });
+});
+
+// chefs
+routes.get("/admin/chefs", (req, res) => {
+  return res.render("admin/chefs/index");
+});
+routes.get("/admin/chefs/create", (req, res) => {
+  return res.render("admin/chefs/create");
 });
 
 module.exports = routes;
