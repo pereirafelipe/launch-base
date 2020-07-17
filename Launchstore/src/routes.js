@@ -12,6 +12,7 @@ routes.get("/products/create", ProductController.create);
 routes.get("/products/:id/edit", ProductController.edit);
 
 routes.post("/products", ProductController.post);
+routes.put("/products", ProductController.put);
 
 routes.get("/ads/create", (req, res) => {
   return res.redirect("/products/create");
