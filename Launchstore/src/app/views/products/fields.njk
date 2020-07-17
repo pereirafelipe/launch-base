@@ -48,16 +48,16 @@
 
 {% if product.status %}
   <div class="item">
-    <div>Disponível?</div>
+    <div>Disponível</div>
     <div>
       <span>
-        <input type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>
-        Sim
+        <input id="yes" type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>
+        <label for="yes">Sim</label>
       </span>
 
       <span>
-        <input type="radio" name="status" value="0" {% if product.status == "0" %} }="}" checked="checked" {% endif %}>
-        Não
+        <input id="not" type="radio" name="status" value="0" {% if product.status == "0" %} }="}" checked="checked" {% endif %}>
+        <label for="not">Não</label>
       </span>
     </div>
   </div>
