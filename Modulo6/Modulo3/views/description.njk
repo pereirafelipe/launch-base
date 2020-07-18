@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <title>Rocketseat | Cursos</title>
+{% endblock head %}
+
+{% block content %}
+  <section class="course">
+
+    <div class="course_container" id="course_{{course.id}}">
+      <div class="course_image" id="{{ 'launch_img' if course.id == 'launchbase' }}">
+        <img src="/assets/{{course.id}}.svg" alt=""/>
+      </div>
+      <div class="course_content">
+        <p>
+          <strong>{{course.strong}}</strong>
+          {{course.description}}
+        </p>
+      </div>
+      <div class="course_info">
+        <p>{{course.modules}}</p>
+        <div class="course_price">
+          <p>{{course.price}}</p>
+        </div>
+      </div>
+
+      <div class="icons">
+        <a id="i_{{course.id}}" href="https://rocketseat.com.br/{{course.id}}" target="_blank" rel="noopener noreferrer">
+          <span class="material-icons">
+            arrow_forward_ios
+          </span>
+          <p>Visitar página oficial</p>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script src="/scripts.js"></script>
+{% endblock content %}

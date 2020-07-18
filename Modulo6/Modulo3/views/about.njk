@@ -1,0 +1,41 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>{{about.name}}
+    | Sobre</title>
+{% endblock head %}
+
+{% block content %}
+  <main>
+    <div class="logo_image">
+      <img src="/assets/{{about.avatar}}.png" alt="Logo Rocketseat"/>
+    </div>
+
+    <h1>{{about.name}}</h1>
+    <h2>{{about.role}}</h2>
+
+    <div class="description">
+      <p class="p_rocket">
+        {{about.strong}}
+      </p>
+      <p>
+        {{about.description}}
+      </p>
+    </div>
+
+    <div class="techs">
+      <h3>As mesmas tecnologias adotadas pelos melhores times do mundo:</h3>
+      <ul>
+        {% for tech in about.techs %}
+          <li>{{tech}}</li>+
+        {% endfor %}
+      </ul>
+    </div>
+  </main>
+
+  <footer class="nav_links footer">
+    {% for link in about.links %}
+      <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+    {% endfor %}
+  </footer>
+{% endblock content %}
