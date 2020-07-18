@@ -27,15 +27,20 @@
       <h3>As mesmas tecnologias adotadas pelos melhores times do mundo:</h3>
       <ul>
         {% for tech in about.techs %}
-          <li>{{tech}}</li>+
+          <li>{{tech}}</li>
         {% endfor %}
       </ul>
     </div>
   </main>
 
-  <footer class="nav_links footer">
+  <div class="nav_links footer">
     {% for link in about.links %}
       <a href="{{link.url}}" target="_blank">{{link.name}}</a>
     {% endfor %}
+  </div>
+
+  <footer>
+    <p>Residencial Acalanto - R. Guilherme Gemballa, 260 - Sala 3 - Jardim América, Rio do Sul - SC, 89160-188</p>
+    <p>Rocketseat © 2020 - Todos os direitos reservados</p>
   </footer>
 {% endblock content %}
