@@ -8,4 +8,8 @@ function setDoubleNumber(number, callback) {
   callback(number, time);
 }
 
-setDoubleNumber(8, handleRandom);
+setDoubleNumber(1, handleRandom);
+setDoubleNumber(2, handleRandom);
+setDoubleNumber(3, handleRandom);
+setDoubleNumber(4, handleRandom);
+setDoubleNumber(5, handleRandom);
