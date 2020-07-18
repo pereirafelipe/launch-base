@@ -4,7 +4,7 @@
 
 <h1 align="center">Launchstore</h1>
 
-<p align="center">Launchstore é um e-commerce desenvolvido como projeto do bootcamp Lauchbase</p>
+<p align="center">Launchstore é um e-commerce desenvolvido como projeto do Bootcamp LauchBase</p>
 
 <p align="center">
  <a href="#features">Features</a> •
@@ -15,9 +15,9 @@
  <a href="#autor">Autor</a>
 </p>
 
-### Em construção...
+### 🚧 Em construção...
 
-### Features
+### ⚒️ Features
 
 - [x] Cadastro de produtos
 - [x] Atualização de produtos
@@ -25,7 +25,7 @@
 - [ ] Upload de imagens
 - [ ] Casdastro de usuários
 
-### Aplicação
+### 🎨 Aplicação
 
 #### Formulário de cadastro de produtos:
 
@@ -33,13 +33,13 @@
   <img src="https://user-images.githubusercontent.com/48728541/87841366-24135200-c87b-11ea-8361-2b8705837281.png" />
 </p>
 
-### Pré-requisitos
+### ⚙️ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### Utilização
+### 👩‍💻 Utilização
 
 #### Clonando o repositório
 
@@ -68,7 +68,7 @@ $ npm start
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
-### Tecnologias
+### 🚀 Tecnologias
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
@@ -78,7 +78,7 @@ $ npm start
 - [PostgreSQL](https://www.postgresql.org/)
 
 
-### Autor
+### 👩🏽‍🚀 Autor
 
 
   <img style="border-radius: 50%;" width="88" src="https://avatars1.githubusercontent.com/u/48728541?s=460&u=50a45fccecd761aebf1375e9e6236503e6782a13&v=4" />
