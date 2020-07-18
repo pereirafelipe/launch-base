@@ -7,11 +7,11 @@
 <p align="center">Launchstore é um e-commerce desenvolvido como projeto do bootcamp Lauchbase</p>
 
 <p align="center">
- <a href="#objetivo">Objetivo</a> •
- <a href="#roadmap">Roadmap</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Contribuição</a> • 
- <a href="#licenc-a">Licença</a> • 
+ <a href="#features">Features</a> •
+ <a href="#aplicação">Aplicação</a> • 
+ <a href="#pré-requisitos">Pré-requisitos</a> • 
+ <a href="utilização">Utilização</a> •
+ <a href="#tecnologias">Tecnologias</a> •  
  <a href="#autor">Autor</a>
 </p>
 
@@ -38,6 +38,8 @@
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+### Utilização
 
 #### Clonando o repositório
 
@@ -66,7 +68,7 @@ $ npm start
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
-### Tecnologias utilizadas
+### Tecnologias
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
