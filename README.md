@@ -28,6 +28,7 @@ LaunchBase
 - [Foodfy 3.0](./Foodfy3) - Admin Foodfy
 - [Módulo 5](./Modulo5) - Persistindo dados da aplicação
 - [Gym Manager 2.0](./GymManager2) - Desafio Controle de Academia (com banco de dados)
+- [Launchstore](./Launchstore) - Launchstore
 
 
 ## Divirta-se! Rumo ao próximo nível! 🚀🚀
