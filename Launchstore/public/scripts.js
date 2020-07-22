@@ -28,10 +28,9 @@ const PhotosUpload = {
       hasLimit,
       files,
       getAllFiles,
-      input,
     } = PhotosUpload;
 
-    input = event.target;
+    PhotosUpload.input = event.target;
 
     if (hasLimit(event)) return;
 
@@ -52,7 +51,7 @@ const PhotosUpload = {
       reader.readAsDataURL(file);
     });
 
-    input.files = getAllFiles();
+    PhotosUpload.input.files = getAllFiles();
   },
   getContainer(image) {
     const { getRemoveButton, removePhoto } = PhotosUpload;
@@ -101,7 +100,7 @@ const PhotosUpload = {
     return button;
   },
   removePhoto(event) {
-    const { preview, files, input, getAllFiles } = PhotosUpload;
+    const { preview, files, getAllFiles } = PhotosUpload;
 
     const photoDiv = event.target.parentNode; // div.photo
     const photoArray = Array.from(preview.children);
@@ -109,15 +108,15 @@ const PhotosUpload = {
     const index = photoArray.indexOf(photoDiv);
 
     files.splice(index, 1);
-    input.files = getAllFiles();
+    PhotosUpload.input.files = getAllFiles();
 
     photoDiv.remove();
   },
   getAllFiles() {
     const { files } = PhotosUpload;
 
-    const dataTransfer =
-      new ClipboardEvent.clipboardData() || new DataTransfer();
+    // ClipboardEvent.clipboardData() para mozilla
+    const dataTransfer = new DataTransfer();
 
     files.forEach((file) => dataTransfer.items.add(file));
 
