@@ -2,9 +2,9 @@ module.exports = {
   handleDate(timestamp) {
     const date = new Date(timestamp);
 
-    const year = date.getUTCFullYear();
-    let month = date.getUTCMonth();
-    let day = date.getUTCDate();
+    const year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate();
     const hour = date.getHours();
     const minutes = date.getMinutes();
 
