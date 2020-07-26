@@ -22,7 +22,10 @@
 - [x] Cadastro de produtos
 - [x] Atualização de produtos
 - [x] Exclusão de produtos
-- [ ] Upload de imagens
+- [x] Upload de imagens
+- [ ] Página de Compras
+- [ ] Galeria de Imagens
+- [ ] Listagem de Produtos
 - [ ] Casdastro de usuários
 
 ### 🎨 Aplicação
@@ -36,7 +39,7 @@
 ### ⚙️ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 👩‍💻 Utilização
@@ -77,12 +80,9 @@ $ npm start
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
 
-
 ### 👩🏽‍🚀 Autor
 
-
   <img style="border-radius: 50%;" width="88" src="https://avatars1.githubusercontent.com/u/48728541?s=460&u=50a45fccecd761aebf1375e9e6236503e6782a13&v=4" />
-
 
 [Fernanda Leite](https://github.com/Fekleite)
 
@@ -100,4 +100,3 @@ Feito com ❤️ por Fernanda Leite!
   <a href="https://twitter.com/Fekleite19" alt="Twitter">
     <img src="https://img.shields.io/badge/-Twitter-1da0f2?style=flat-square&logo=Twitter&logoColor=white" />
   </a>
-
