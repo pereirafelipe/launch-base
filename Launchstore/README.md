@@ -7,12 +7,12 @@
 <p align="center">Launchstore é um e-commerce desenvolvido como projeto do Bootcamp LauchBase</p>
 
 <p align="center">
- <a href="#features">Features</a> •
- <a href="#aplicação">Aplicação</a> • 
- <a href="#pré-requisitos">Pré-requisitos</a> • 
- <a href="utilização">Utilização</a> •
- <a href="#tecnologias">Tecnologias</a> •  
- <a href="#autor">Autor</a>
+ <a href="#-features">Features</a> •
+ <a href="#-aplicação">Aplicação</a> • 
+ <a href="#-pré-requisitos">Pré-requisitos</a> • 
+ <a href="#-utilização">Utilização</a> •
+ <a href="#-tecnologias">Tecnologias</a> •  
+ <a href="#-autor">Autor</a>
 </p>
 
 ### 🚧 Em construção...
