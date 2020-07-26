@@ -26,7 +26,7 @@
 - [ ] Página de Compras
 - [ ] Galeria de Imagens
 - [ ] Listagem de Produtos
-- [ ] Casdastro de usuários
+- [ ] Cadastro de usuários
 
 ### 🎨 Aplicação
 
