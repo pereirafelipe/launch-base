@@ -1,7 +1,27 @@
 module.exports = {
-  handleDate(date) {
-    const formatDate = date.split("-").reverse().join("/");
-    return formatDate;
+  handleDate(timestamp) {
+    const date = new Date(timestamp);
+
+    const year = date.getUTCFullYear();
+    let month = date.getUTCMonth();
+    let day = date.getUTCDate();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+
+    if (Number(day) < 10) day = `0${day}`;
+
+    if (Number(month) < 10) month = `0${month}`;
+
+    return {
+      day,
+      month,
+      year,
+      hour,
+      minutes,
+      iso: `${year}-${month}-${day}`,
+      birthDay: `${day}/${month}`,
+      format: `${day}/${month}/${year}`,
+    };
   },
   formatPrice(price) {
     return new Intl.NumberFormat("pt-BR", {
