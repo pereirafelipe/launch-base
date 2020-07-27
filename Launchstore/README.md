@@ -23,8 +23,8 @@
 - [x] Atualização de produtos
 - [x] Exclusão de produtos
 - [x] Upload de imagens
-- [ ] Página de Compras
-- [ ] Galeria de Imagens
+- [x] Página do produto
+- [x] Galeria de Imagens
 - [ ] Listagem de Produtos
 - [ ] Cadastro de usuários
 
