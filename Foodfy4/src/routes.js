@@ -5,6 +5,7 @@ const RecipeController = require("./app/controllers/RecipeController");
 const AdminRecipeController = require("./app/controllers/AdminRecipeController");
 const ChefController = require("./app/controllers/ChefController");
 const AdminChefController = require("./app/controllers/AdminChefController");
+const SearchController = require("./app/controllers/SearchController");
 
 const routes = express.Router();
 
@@ -32,8 +33,6 @@ routes.get("/admin/chefs/:index/edit", AdminChefController.edit);
 routes.put("/admin/chefs", AdminChefController.put);
 routes.delete("/admin/chefs", AdminChefController.delete);
 
-routes.get("/results", (req, res) => {
-  return res.render("user/results");
-});
+routes.get("/results", SearchController.index);
 
 module.exports = routes;
