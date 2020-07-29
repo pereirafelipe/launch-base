@@ -3,6 +3,7 @@ const express = require("express");
 const HomeController = require("./app/controllers/HomeController");
 const RecipeController = require("./app/controllers/RecipeController");
 const AdminRecipeController = require("./app/controllers/AdminRecipeController");
+const ChefController = require("./app/controllers/ChefController");
 
 const routes = express.Router();
 
@@ -20,9 +21,8 @@ routes.get("/admin/recipes/:index/edit", AdminRecipeController.edit);
 routes.put("/admin/recipes", AdminRecipeController.put);
 routes.delete("/admin/recipes", AdminRecipeController.delete);
 
-routes.get("/chefs", (req, res) => {
-  return res.render("user/chefs");
-});
+routes.get("/chefs", ChefController.index);
+
 routes.get("/admin/chefs", (req, res) => {
   return res.render("admin/chefs/index");
 });
