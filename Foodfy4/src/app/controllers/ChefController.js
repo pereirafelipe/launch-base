@@ -1,7 +1,10 @@
-const data = require("../../data.json");
+const Chef = require("../models/Chef");
 
 module.exports = {
-  index(req, res) {
-    return res.render("user/chefs");
+  async index(req, res) {
+    let results = await Chef.all();
+    const chefs = results.rows;
+
+    return res.render("user/chefs", { chefs });
   },
 };

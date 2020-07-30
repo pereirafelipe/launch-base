@@ -538,9 +538,13 @@ h2 {
 .chef__avatar {
   width: 64px;
   height: 64px;
-  background-color: #777;
-  border-radius: 50%;
   margin-right: 20px;
+}
+
+.chef__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .chef__name {

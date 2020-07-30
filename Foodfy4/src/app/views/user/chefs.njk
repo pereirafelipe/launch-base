@@ -3,69 +3,18 @@
 {% block content %}
   <main>
     <section class="chefs">
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
+      {% for chef in chefs %}
+        <div class="chef">
+          <div class="chef__avatar">
+            <img src="{{chef.avatar_url}}" alt="">
+          </div>
+          <div class="chef__infos">
+            <h2 class="chef__name">{{chef.name}}</h2>
+            <p class="chef__recipes">3 receitas</p>
+          </div>
         </div>
-      </div>
+      {% endfor %}
 
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
-
-      <div class="chef">
-        <div class="chef__avatar"></div>
-        <div class="chef__infos">
-          <h2 class="chef__name">Júlia Kinoto</h2>
-          <p class="chef__recipes">3 receitas</p>
-        </div>
-      </div>
     </section>
   </main>
 {% endblock content %}
