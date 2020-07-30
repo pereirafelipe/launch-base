@@ -1,8 +1,13 @@
-const data = require("../../data.json");
+const Recipe = require("../models/Recipe");
 
 module.exports = {
-  index(req, res) {
-    return res.render("user/home", { recipes: data.recipes });
+  async index(req, res) {
+    let results = await Recipe.all();
+    const recipes = results.rows;
+
+    if (!recipes) return res.send("Recipes not found!");
+
+    return res.render("user/home", { recipes });
   },
   about(req, res) {
     return res.render("user/about");

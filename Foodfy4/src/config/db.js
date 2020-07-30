@@ -5,5 +5,5 @@ module.exports = new Pool({
   password: "1008",
   host: "localhost",
   port: 5432,
-  database: "lauchstoredb",
+  database: "foodfy",
 });

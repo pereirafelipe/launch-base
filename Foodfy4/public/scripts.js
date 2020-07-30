@@ -1,12 +1,3 @@
-const recipes = document.querySelectorAll(".recipe");
-
-for (let i = 0; i < recipes.length; i++) {
-  const recipe = recipes[i];
-  recipe.addEventListener("click", () => {
-    window.location.href = `/recipes/${i}`;
-  });
-}
-
 const viewLink = document.querySelectorAll(".recipe__link");
 
 for (let i = 0; i < viewLink.length; i++) {

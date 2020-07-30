@@ -168,7 +168,7 @@ h2 {
 .recipe h3 {
   font-size: 18px;
   color: #111111;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
 }
 
 .recipe p {
@@ -554,4 +554,15 @@ h2 {
   font-size: 14px;
   color: #666666;
   font-weight: normal;
+}
+
+.button {
+  color: #6558c3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: filter 0.2s;
+}
+
+.button:hover {
+  filter: brightness(60%);
 }

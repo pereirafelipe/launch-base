@@ -13,23 +13,23 @@ routes.get("/", HomeController.index);
 routes.get("/about", HomeController.about);
 
 routes.get("/recipes", RecipeController.index);
-routes.get("/recipes/:index", RecipeController.show);
+routes.get("/recipes/:id", RecipeController.show);
 
 routes.get("/admin/recipes", AdminRecipeController.index);
 routes.get("/admin/recipes/create", AdminRecipeController.create);
 routes.post("/admin/recipes", AdminRecipeController.post);
-routes.get("/admin/recipes/:index", AdminRecipeController.show);
-routes.get("/admin/recipes/:index/edit", AdminRecipeController.edit);
+routes.get("/admin/recipes/:id", AdminRecipeController.show);
+routes.get("/admin/recipes/:id/edit", AdminRecipeController.edit);
 routes.put("/admin/recipes", AdminRecipeController.put);
 routes.delete("/admin/recipes", AdminRecipeController.delete);
 
 routes.get("/chefs", ChefController.index);
 
 routes.get("/admin/chefs", AdminChefController.index);
-routes.get("/admin/chefs/:index", AdminChefController.show);
+routes.get("/admin/chefs/:id", AdminChefController.show);
 routes.get("/admin/chefs/create", AdminChefController.create);
 routes.post("/admin/chefs", AdminChefController.post);
-routes.get("/admin/chefs/:index/edit", AdminChefController.edit);
+routes.get("/admin/chefs/:id/edit", AdminChefController.edit);
 routes.put("/admin/chefs", AdminChefController.put);
 routes.delete("/admin/chefs", AdminChefController.delete);
 

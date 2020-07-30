@@ -13,7 +13,7 @@
 
       <h2>{{recipe.title}}</h2>
       <p>por
-        {{recipe.author}}</p>
+        {{chef.name}}</p>
 
       <div class="ingredients">
         <div class="ingredients__header">
@@ -45,7 +45,7 @@
         </ul>
       </div>
 
-      {% if recipe.information !== "" %}
+      {% if recipe.information !== null %}
         <div class="information">
           <div class="preparation__header">
             <h3>Informações adicionais</h3>
@@ -55,7 +55,7 @@
             </span>
           </div>
 
-          <p >{{recipe.information}}</p>
+          <p>{{recipe.information}}</p>
         </div>
       {% endif %}
 
