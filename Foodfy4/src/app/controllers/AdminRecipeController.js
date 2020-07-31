@@ -1,28 +1,34 @@
-const fs = require("fs");
+const Recipe = require("../models/Recipe");
+const Chef = require("../models/Chef");
 
 module.exports = {
-  index(req, res) {
-    return res.render("admin/recipes/index", { recipes: data.recipes });
-  },
-  show(req, res) {
-    const recipeIndex = req.params.index;
-    const recipe = data.recipes[recipeIndex];
+  async index(req, res) {
+    let results = await Recipe.all();
+    const recipes = results.rows;
 
-    return res.render("admin/recipes/show", { recipe });
+    if (!recipes) return res.send("Recipes not found!");
+
+    return res.render("admin/recipes/index", { recipes });
   },
-  create(req, res) {
-    return res.render("admin/recipes/create");
+  async show(req, res) {
+    const { id } = req.params;
+
+    let results = await Recipe.find(id);
+    const recipe = results.rows[0];
+
+    results = await Chef.find(recipe.chef_id);
+    const chef = results.rows[0];
+
+    return res.render("admin/recipes/show", { recipe, chef });
   },
-  post(req, res) {
+  async create(req, res) {
+    let results = await Chef.all();
+    const chefs = results.rows;
+
+    return res.render("admin/recipes/create", { chefs });
+  },
+  async post(req, res) {
     const keys = Object.keys(req.body);
-    let {
-      image,
-      title,
-      author,
-      ingredients,
-      preparation,
-      information,
-    } = req.body;
 
     keys.map((key) => {
       if (req.body[key] === "") {
@@ -30,23 +36,10 @@ module.exports = {
       }
     });
 
-    id = Number(data.recipes.length + 1);
+    let results = await Recipe.create(req.body);
+    const recipeId = results.rows[0];
 
-    data.recipes.push({
-      id,
-      image,
-      title,
-      author,
-      ingredients,
-      preparation,
-      information,
-    });
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect("/admin/recipes");
-    });
+    return res.redirect(`/admin/recipes/${recipeId}`);
   },
   edit(req, res) {
     const recipeIndex = req.params.index;
