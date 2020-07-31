@@ -24,12 +24,39 @@ module.exports = {
       Number(data.author),
       data.image,
       data.title,
-      data.ingredients,
-      data.preparation,
+      (ingredients = `{${String(data.ingredients)}}`),
+      (preparation = `{${String(data.preparation)}}`),
       data.information,
     ];
 
     return db.query(query, values);
+  },
+  update(data) {
+    const query = `
+    UPDATE recipes SET
+      chef_id=($1),
+      image=($2),
+      title=($3) ,
+      ingredients=($4),
+      preparation=($5),
+      information=($6)
+    WHERE id=$7
+  `;
+
+    const values = [
+      Number(data.author),
+      data.image,
+      data.title,
+      (ingredients = `{${String(data.ingredients)}}`),
+      (preparation = `{${String(data.preparation)}}`),
+      data.information,
+      data.id,
+    ];
+
+    return db.query(query, values);
+  },
+  delete(id) {
+    return db.query(`DELETE FROM recipes WHERE id = $1`, [id]);
   },
   search(filter) {
     const query = `

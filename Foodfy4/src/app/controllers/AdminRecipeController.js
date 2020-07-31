@@ -16,6 +16,8 @@ module.exports = {
     let results = await Recipe.find(id);
     const recipe = results.rows[0];
 
+    if (!recipe) return res.send("Recipe not found!");
+
     results = await Chef.find(recipe.chef_id);
     const chef = results.rows[0];
 
@@ -37,59 +39,37 @@ module.exports = {
     });
 
     let results = await Recipe.create(req.body);
-    const recipeId = results.rows[0];
+    const recipeId = results.rows[0].id;
 
     return res.redirect(`/admin/recipes/${recipeId}`);
   },
-  edit(req, res) {
-    const recipeIndex = req.params.index;
-    const tIndex = Number(recipeIndex) - 1;
-    const recipe = data.recipes[tIndex];
+  async edit(req, res) {
+    const { id } = req.params;
 
-    if (!recipe) return res.send("Recipe not found!");
+    let results = await Recipe.find(id);
+    const recipe = results.rows[0];
 
-    return res.render("admin/recipes/edit", { recipe });
+    results = await Chef.all();
+    const chefs = results.rows;
+
+    return res.render("admin/recipes/edit", { recipe, chefs });
   },
-  put(req, res) {
-    const { id } = req.body;
-    let index = 0;
+  async put(req, res) {
+    const keys = Object.keys(req.body);
 
-    const foundRecipe = data.recipes.find((recipe, foundIndex) => {
-      if (recipe.id == id) {
-        index = foundIndex;
-        return true;
+    keys.map((key) => {
+      if (req.body[key] === "") {
+        return res.send("Please, fill all fields!");
       }
     });
 
-    if (!foundRecipe) return res.send("Recipe not found!");
+    await Recipe.update(req.body);
 
-    const recipe = {
-      ...foundRecipe,
-      ...req.body,
-      id: Number(req.body.id),
-    };
-
-    data.recipes[index] = recipe;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect(`/admin/recipes/${index}`);
-    });
+    return res.redirect(`/admin/recipes/${req.body.id}`);
   },
-  delete(req, res) {
-    const { id } = req.body;
+  async delete(req, res) {
+    await Recipe.delete(req.body.id);
 
-    const filteredRecipes = data.recipes.filter((recipe) => {
-      return recipe.id != id;
-    });
-
-    data.recipes = filteredRecipes;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
-      if (err) return res.send("Write file error!");
-
-      return res.redirect(`/admin/recipes`);
-    });
+    return res.redirect(`/admin/recipes`);
   },
 };
