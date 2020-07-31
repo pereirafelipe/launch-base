@@ -229,6 +229,16 @@ h2 {
   border-radius: 15px;
 }
 
+.detail__image-chef {
+  width: 240px;
+  margin: 50px auto;
+}
+
+.detail__image-chef img {
+  width: 100%;
+  border-radius: 50%;
+}
+
 .detail h2 {
   text-align: center;
   font-size: 36px;
