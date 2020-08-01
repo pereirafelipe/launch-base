@@ -10,7 +10,15 @@
           </div>
           <div class="chef__infos">
             <h2 class="chef__name">{{chef.name}}</h2>
-            <p class="chef__recipes">3 receitas</p>
+
+            {% if chef.total_recipes > 1 %}
+              <p class="chef__recipes">{{chef.total_recipes}}
+                receitas</p>
+              {%else%}
+              <p class="chef__recipes">{{chef.total_recipes}}
+                receita</p>
+            {% endif %}
+
           </div>
         </div>
       {% endfor %}

@@ -35,4 +35,14 @@ module.exports = {
   delete(id) {
     return db.query(`DELETE FROM chefs WHERE id = $1`, [id]);
   },
+  getTotalRecipes() {
+    const query = `
+      SELECT chefs.*, count(recipes) AS total_recipes
+      FROM chefs
+      LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+      GROUP BY chefs.id 
+    `;
+
+    return db.query(query);
+  },
 };

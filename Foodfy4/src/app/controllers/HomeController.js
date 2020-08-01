@@ -7,7 +7,9 @@ module.exports = {
 
     if (!recipes) return res.send("Recipes not found!");
 
-    return res.render("user/home", { recipes });
+    const homeRecipes = recipes.slice(0, 3);
+
+    return res.render("user/home", { recipes: homeRecipes });
   },
   about(req, res) {
     return res.render("user/about");

@@ -605,3 +605,30 @@ h2 {
 .space {
   margin-bottom: 40px;
 }
+
+.all__recipes {
+  margin-bottom: 24px;
+}
+
+.all__recipes a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111111;
+}
+
+.all__recipes a:hover span {
+  animation: arrowMove 0.7s 2 ease-in-out;
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
