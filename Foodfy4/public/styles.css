@@ -601,3 +601,7 @@ h2 {
 .button:hover {
   filter: brightness(60%);
 }
+
+.space {
+  margin-bottom: 40px;
+}

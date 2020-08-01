@@ -26,9 +26,9 @@ routes.delete("/admin/recipes", AdminRecipeController.delete);
 routes.get("/chefs", ChefController.index);
 
 routes.get("/admin/chefs", AdminChefController.index);
-routes.get("/admin/chefs/:id", AdminChefController.show);
 routes.get("/admin/chefs/create", AdminChefController.create);
 routes.post("/admin/chefs", AdminChefController.post);
+routes.get("/admin/chefs/:id", AdminChefController.show);
 routes.get("/admin/chefs/:id/edit", AdminChefController.edit);
 routes.put("/admin/chefs", AdminChefController.put);
 routes.delete("/admin/chefs", AdminChefController.delete);

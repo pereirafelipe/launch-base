@@ -6,7 +6,7 @@
 
 {% block content %}
   <main>
-    <section class="detail">
+    <section class="detail space">
       <div class="detail__header">
         <h3>Chef:
           {{chef.name}}</h3>
@@ -27,22 +27,27 @@
 
     </section>
 
-    <h2 class="admin__title">Receitas</h2>
+    {% if recipes.length != 0 %}
 
-    <section class="admin__recipes">
+      <h2 class="admin__title">Receitas</h2>
 
-      {% for recipe in recipes %}
-        <div class="admin__recipe">
-          <div class="recipe__image a">
-            <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}"/>
+      <section class="admin__recipes">
+
+        {% for recipe in recipes %}
+          <div class="admin__recipe">
+            <div class="recipe__image a">
+              <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}"/>
+            </div>
+            <div>
+              <h3>{{recipe.title}}</h3>
+
+              <a href="/admin/recipes/{{recipe.id}}" class="recipe__link">Visualizar</a>
+            </div>
           </div>
-          <div>
-            <h3>{{recipe.title}}</h3>
+        {% endfor %}
+      </section>
 
-            <a href="/admin/recipes/{{recipe.id}}" class="recipe__link">Visualizar</a>
-          </div>
-        </div>
-      {% endfor %}
+    {% endif %}
 
-    </main>
-  {% endblock content %}
+  </main>
+{% endblock content %}

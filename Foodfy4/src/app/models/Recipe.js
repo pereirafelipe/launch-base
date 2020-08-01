@@ -7,6 +7,9 @@ module.exports = {
   find(id) {
     return db.query(`SELECT * FROM recipes WHERE id = $1`, [id]);
   },
+  findByChef(id) {
+    return db.query(`SELECT * FROM recipes WHERE chef_id = $1`, [id]);
+  },
   create(data) {
     const query = `
       INSERT INTO recipes (
